@@ -60,6 +60,7 @@ main {
   font-size: 200px;
 }
 #bulb{
+  filter: invert();
   position: absolute;
   cursor: pointer;
   margin: 0;
