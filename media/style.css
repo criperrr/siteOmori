@@ -38,8 +38,9 @@ main {
 .carpet{
   margin-top: 100px;
   border: 4px solid var(--dark);
-  width: 600px;
-  height: 450px;
+  width: 90%;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
   min-width: 200px;
   min-height: 100px;
   display: flex;
