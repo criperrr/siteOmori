@@ -1,41 +1,49 @@
 @font-face {
   font-family: "Omori-Font";
-  src: url('./fonts/OMORI_GAME2.ttf') format('embed-opentype'), url('./fonts/OMORI_GAME2.ttf') format('woff2'), url('./fonts/OMORI_GAME2.ttf') format('woff'), url('./fonts/OMORI_GAME2.ttf') format('truetype'), url('./fonts/OMORI_GAME2.ttf') format('svg');
+  src: url('./fonts/OMORI_GAME2.ttf');
 }
 
 * {
-  font-family: "Omori-Font", serif;
-}
-
-body {
   font-family: "Omori-Font";
-  background-color: cyan;
+}
+body {
+  --white: #ffffff;
+  --dark: #000000;
+  font-family: "Omori-Font";
   display: flex;
   margin: 0;
   font-size: 1.5rem;
   flex-direction: column;
 }
-
+.dark{
+  --white: #000000;
+  --dark: #ffffff;
+}
 html,
 body {
-  color: #ffffff;
+  user-select: none;
+  color: black;
   height: 100%;
 }
 
 main {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white);
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .carpet{
   margin-top: 100px;
-  border: 4px solid black;
-  width: 70%;
-  height: 45%;
+  border: 4px solid var(--dark);
+  width: 600px;
+  height: 450px;
+  min-width: 200px;
+  min-height: 100px;
   display: flex;
+  flex-direction: row;
   position: relative;
 }
 .mewo{
@@ -43,7 +51,28 @@ main {
   bottom: 0;
 }
 .light-bulb{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#debug{
+  color: var(--dark);
+  font-size: 200px;
+}
+#bulb{
   position: absolute;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 0;
+}
+
+#shadow{
+  filter: drop-shadow(0 0 10px black);
+  position: absolute;
+  top: 50%;
+  left: 65%;
 }
 header fieldset{
   margin: 0;
