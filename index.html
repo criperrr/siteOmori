@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="media/style.css" />
-    <script src="media/script.js"></script>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="media/image/omori_sprite_icon.png"
-    />
-    <title>OMORI</title>
-  </head>
-  <body>
-    <header id="header">
-      <div class="direita">placeholder1 placeholder2 placeholder3</div>
-      <fieldset>
-        <span style="font-size: 1.8rem">☰</span>
-      </fieldset>
-    </header>
-    <main id="whitespace">
-      <div class="light-bulb">
-        <span id="bulb-text">Theme</span>
-        <img id="bulb" src="media/image/bulb_black_theme.gif" draggable="false">
-        
-      </div>
-      <div class="door">
-        <img id="door" src="media/image/door.png" draggable="false" />
-      </div>
-      <div class="carpet">
-        <div class="mewo">
-          <img id="mewo" src="media/image/mewo.gif" draggable="false"/>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMORI</title>
+  <link rel="icon" href="media/image/omori_sprite_icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="media/style.css" />
+  <script defer src="media/script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header__right">placeholder1 placeholder2 placeholder3</div>
+    <button class="menu-button" aria-label="Abrir menu">☰</button>
+  </header>
 
-        </div>
+  <main class="whitespace" id="whitespace">
+    <section class="light-bulb">
+      <button id="theme-toggle" aria-label="Alternar tema">
+        <img id="bulb" src="media/image/bulb_black_theme.gif" alt="Interruptor de tema" draggable="false" />
+      </button>
+      <span id="bulb-text">Theme</span>
+    </section>
+
+    <section class="door">
+      <img id="door" src="media/image/door.png" alt="Porta" draggable="false" />
+    </section>
+
+    <section class="carpet">
+      <div class="mewo">
+        <img id="mewo" src="media/image/mewo.gif" alt="Mewo" draggable="false" />
       </div>
-      </main>
-  </body>
+    </section>
+  </main>
+</body>
 </html>

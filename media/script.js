@@ -1,40 +1,34 @@
-let theme = '';
-const theme_local = window.sessionStorage.getItem('theme');
-window.addEventListener('DOMContentLoaded', function() {
-    const bulb = document.getElementById('bulb');
-    const header = document.getElementById('header');
-    theme = theme_local;
-    applyTheme(theme);
+document.addEventListener('DOMContentLoaded', () => {
+  const bulb = document.getElementById('bulb');
+  const themeToggle = document.getElementById('theme-toggle');
 
-    if (header) {
-        header.style.display = 'none';
-    }
-    if (bulb) {
-        bulb.addEventListener('click', () => {
-            theme = (theme === 'dark' ? 'light' : 'dark');
-            window.sessionStorage.setItem("theme", theme);
+  let theme = sessionStorage.getItem('theme') || 'light';
+  applyTheme(theme);
 
-            applyTheme(theme);
-        });
-    }
-});
+  const header = document.querySelector('.header');
+  if (header) header.style.display = 'none';
 
-function applyTheme(theme){
-    const door = document.getElementById('door');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      sessionStorage.setItem('theme', theme);
+      applyTheme(theme);
+    });
+  }
+
+  function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+
+    const isDark = theme === 'dark';
+    const filterStyle = isDark ? 'invert()' : 'none';
+
+    document.getElementById('door').style.filter = filterStyle;
+    document.getElementById('mewo').style.filter = filterStyle;
+    bulb.style.filter = isDark
+      ? 'drop-shadow(0px 0px 100px var(--dark))'
+      : 'invert() drop-shadow(0px 0px 10px var(--dark))';
+
     const whitespace = document.getElementById('whitespace');
-    const mewo = document.getElementById('mewo');
-    if(theme === "dark"){
-        document.body.setAttribute('data-theme', theme);
-        if (bulb) bulb.style.filter = "drop-shadow(0px 0px 100px var(--dark))";
-        if (whitespace) whitespace.classList.add("dark");
-        if (mewo) mewo.style.filter = 'invert()';
-        if (door) door.style.filter = 'invert()';
-    } else if(theme === "light"){
-
-        document.body.setAttribute('data-theme', theme);
-        if (bulb) bulb.style.filter = "invert() drop-shadow(0px 0px 10px var(--dark))";
-        if (whitespace) whitespace.classList.remove("dark");
-        if (mewo) mewo.style.filter = 'none';
-        if (door) door.style.filter = 'none';
-    }
-}
+    whitespace.classList.toggle('dark', isDark);
+  }
+});
