@@ -113,6 +113,7 @@ main.whitespace {
 /* DOOR */
 .door img {
   filter: invert();
+  margin-top: 10px;
   height: 20vmin;
   min-height: 50px;
   cursor: pointer;

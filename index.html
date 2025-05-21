@@ -9,10 +9,6 @@
   <script defer src="media/script.js"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="header__right">placeholder1 placeholder2 placeholder3</div>
-    <button class="menu-button" aria-label="Abrir menu">☰</button>
-  </header>
 
   <main class="whitespace" id="whitespace">
     <section class="light-bulb">
@@ -28,7 +24,11 @@
 
     <section class="carpet">
       <div class="mewo">
-        <img id="mewo" src="media/image/mewo.gif" alt="Mewo" draggable="false" />
+        <img src="media/image/mewo.gif" alt="Mewo" style="cursor: pointer;" draggable="false" onclick="playMewo()" />
+        <audio id="mewoMeow">
+          <source src="media/audio/mewo.mp3" type="audio/mpeg">
+          Seu navegador não suporta áudio.
+        </audio>
       </div>
     </section>
   </main>

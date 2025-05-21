@@ -32,3 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     whitespace.classList.toggle('dark', isDark);
   }
 });
+function playMewo() {
+  const elem = document.getElementById("mewoMeow");
+  if (elem) {
+    elem.play();
+  }
+}
