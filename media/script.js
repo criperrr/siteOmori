@@ -1,3 +1,5 @@
+let playingMewo = false;
+
 document.addEventListener('DOMContentLoaded', () => {
   const bulb = document.getElementById('bulb');
   const themeToggle = document.getElementById('theme-toggle');
@@ -33,8 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 function playMewo() {
-  const elem = document.getElementById("mewoMeow");
+  const elem = document.getElementById("mewoMeow"); 
   if (elem) {
+    elem.pause(); 
+    elem.currentTime = 0.2495; // quase exatamente qnd o mewo fala meow
     elem.play();
   }
 }
