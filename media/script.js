@@ -1,10 +1,8 @@
-let playingMewo = false;
-
 document.addEventListener('DOMContentLoaded', () => {
   const bulb = document.getElementById('bulb');
   const themeToggle = document.getElementById('theme-toggle');
 
-  let theme = sessionStorage.getItem('theme') || 'light';
+  let theme = localStorage.getItem('theme') || 'light';
   applyTheme(theme);
 
   const header = document.querySelector('.header');
@@ -13,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       theme = theme === 'dark' ? 'light' : 'dark';
-      sessionStorage.setItem('theme', theme);
+      localStorage.setItem('theme', theme);
       applyTheme(theme);
     });
   }
