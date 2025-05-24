@@ -132,8 +132,6 @@ main.whitespace {
 }
 
 /* MEWO */
-
-
 .mewo img {
   position: absolute;
   bottom: 0;
@@ -141,6 +139,31 @@ main.whitespace {
   min-height: 40px;
   transition: all 0.1s ease;
 }
+
+/* LAPTOP */
+.laptop img {
+  position: absolute;
+  height: 14vmin;
+  min-height: 50px;
+  transition: all 0.1s ease;
+}
+
+/* SKETCHBOOK */
+.scketchbook img {
+  position: absolute;
+  height: 13vmin;
+  min-height: 40px;
+  transition: all 0.1s ease;
+}
+
+/* TISSUE BOX */
+.tissue-box img {
+  position: absolute;
+  height: 11vmin;
+  min-height: 40px;
+  transition: all 0.1s ease;
+}
+
 
 /* MEDIA QUERIES */
 @media (max-width: 600px) {
