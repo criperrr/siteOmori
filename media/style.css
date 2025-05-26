@@ -140,10 +140,26 @@ main.whitespace {
   transition: all 0.1s ease;
 }
 
+/* TOP CARPET ITEMS */
+.top-incarpet{
+  position: relative;
+  display: flex;
+  box-sizing: border-box ;
+  flex-direction:row-reverse;
+  height: fit-content;
+  flex: 1;
+  justify-content: end;
+  align-items: end;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  margin-right: 10vmin;
+}
 /* LAPTOP */
 .laptop img {
   position: absolute;
-  height: 14vmin;
+  cursor: pointer;
+  height: 13vmin;
   min-height: 50px;
   transition: all 0.1s ease;
 }
@@ -152,6 +168,7 @@ main.whitespace {
 .scketchbook img {
   position: absolute;
   height: 13vmin;
+  cursor: pointer;
   min-height: 40px;
   transition: all 0.1s ease;
 }
@@ -174,6 +191,17 @@ main.whitespace {
     right: auto;
     transform: translateX(-50%);
     align-items: center;
+  }
+
+  .laptop img {
+    height: 18vmin;
+  }
+  .tissue-box img {
+    height: 18vmin;
+  }
+
+  .scketchbook img {
+    height: 18vmin;
   }
 
   #bulb {
