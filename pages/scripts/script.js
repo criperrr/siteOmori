@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const bulb = document.getElementById('bulb');
   const themeToggle = document.getElementById('theme-toggle');
-
   let theme = localStorage.getItem('theme') || 'light';
   applyTheme(theme);
 
@@ -18,12 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function applyTheme(theme) {
     document.body.setAttribute('data-theme', theme);
-
     const isDark = theme === 'dark';
     const filterStyle = isDark ? 'invert()' : 'none';
-
+    const filterDesaturate = isDark ? 'saturate(0)' : 'none';
+    
     document.getElementById('door').style.filter = filterStyle;
+    document.getElementById('tissue-box').style.filter = filterStyle;
+    document.getElementById('laptop').style.filter = filterStyle;
     document.getElementById('mewo').style.filter = filterStyle;
+    document.getElementById('scketchbook')
     bulb.style.filter = isDark
       ? 'drop-shadow(0px 0px 100px var(--dark))'
       : 'invert() drop-shadow(0px 0px 10px var(--dark))';

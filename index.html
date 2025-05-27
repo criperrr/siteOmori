@@ -5,43 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OMORI</title>
   <link rel="icon" href="media/image/omori_sprite_icon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="media/style.css"/>
-  <script defer src="media/script.js"></script>
+  <link rel="stylesheet" href="/pages/styles/style.css"/>
+  <script defer src="pages/scripts/script.js"></script>
 </head>
 <body>
 
   <main class="whitespace" id="whitespace">
     <section class="light-bulb">
       <button id="theme-toggle" aria-label="Alternar tema">
-        <img id="bulb" src="media/image/bulb_black_theme.gif" alt="Interruptor de tema" draggable="false" />
+        <img id="bulb" src="/media/image/elements/single/bulb_black_theme.gif" alt="Interruptor de tema" draggable="false" />
       </button>
       <span id="bulb-text">Theme</span>
     </section>
 
     <section class="door">
-      <a href="/mainPage.html"><img id="door" src="media/image/door.png" alt="Porta" draggable="false" /></a> <!-- TODO: Adicionar um dialogozinho igual no OMORI pergutando se quer sair do whitespace mesmo -->
+      <a href="/pages/homePage/homePage.html"><img id="door" src="/media/image/elements/single/door.png" alt="Porta" draggable="false" /></a> <!-- TODO: Adicionar um dialogozinho igual no OMORI pergutando se quer sair do whitespace mesmo -->
     </section>
 
     <section class="carpet">
       <div class="mewo">
-        <img src="media/image/mewo.gif" id="mewo" alt="Mewo" style="cursor: pointer;" draggable="false" onclick="playMewo()" />
+        <img src="/media/image/elements/single/mewo.gif" id="mewo" alt="Mewo" style="cursor: pointer;" draggable="false" onclick="playMewo()" />
         <audio id="mewoMeow">
-          <source src="media/audio/mewo.mp3" type="audio/mpeg">
+          <source src="/media/image/elements/single/mewo.mp3" type="audio/mpeg">
           Seu navegador não suporta áudio.
         </audio>
 
       </div>
       <div class="top-incarpet">
-        <figure class="laptop">
-          <img src="media/image/sprites/omori_whitespace_computer.gif" alt="Laptop">
+        <figure id="laptop">
+          <img src="/media/image/elements/single/omori_whitespace_computer.gif" draggable="false" alt="Laptop">
         </figure>    
             
-        <figure class="scketchbook">
-          <img src="media/image/sprites/whitespace_scketchbook.png" alt="Scketchbook">
+        <figure id="scketchbook">
+          <img src="/media/image/elements/single/whitespace_scketchbook.png " draggable="false" alt="Scketchbook">
        </figure>
 
-       <figure class="tissue-box">
-          <img src="media/image/sprites/whitespace_tissue_box.png" alt="Tissue Box">
+       <figure id="tissue-box">
+          <img src="/media/image/elements/single/whitespace_tissue_box.png" draggable="false" alt="Tissue Box">
         </figure>
       </div>
     </section>
