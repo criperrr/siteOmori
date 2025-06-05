@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (header && backgroundLayer) {
         header.addEventListener('mouseover', () => {
-            backgroundLayer.style.filter = (isDark)? `${currentFilter} brightness(75%) blur(3px)`: `${currentFilter} blur(3px) `;
+            backgroundLayer.style.filter = (isDark)? `${currentFilter} brightness(75%) `: `${currentFilter} `;
             console.log(`currentFilter = ${ backgroundLayer.style.filter}`);
         });
 

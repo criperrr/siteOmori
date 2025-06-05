@@ -8,11 +8,12 @@
 
 @font-face {
     font-family: "Omori-Font";
-    src: url('media/fonts/OMORI_GAME2.ttf');
+    src: url('/media/fonts/OMORI_GAME2.ttf');
 }
 
 :root {
     --white: #ffffff;
+    --white-30: rgba(255, 255, 255, 0.3);
     --dark-50: rgba(0, 0, 0, 0.7);
     --dark: #000000;
     --primary-bg: #ffffff; 
@@ -25,6 +26,7 @@
 
 body[data-theme='dark'] {
     --white: #000000;
+    --white-30: rgba(0, 0, 0, 0.7);
     --dark-50: rgba(255, 255, 255, 0.8);
     --dark: #ffffff; 
     --primary-bg: #1a1a1a; 
@@ -46,7 +48,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh; 
     transition: background-color 0.3s ease, color 0.3s ease; 
     padding-top: 0; 
 }
@@ -66,7 +67,22 @@ header {
     overflow: hidden; 
     margin-bottom: 2rem; 
 }
-
+#goBack {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    color: var(--primary-text);
+    backdrop-filter: blur(10px);
+    background-color: var(--white-30);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    z-index: 9999;
+}
 #background-layer {
     position: absolute;
     top: 0;
@@ -88,17 +104,15 @@ header {
 }
 
 #content h1 {
-    font-family: "Omori-Font", sans-serif; 
+    font-family: "Omori-Font"; 
     font-size: 6rem;
     line-height: 1;
     margin: 0;
 }
-nav:hover{
-    min-width: 40px;
-}
 nav {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--white-30);
     backdrop-filter: blur(10px);
+    color: var(--primary-text);
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 10px;
     width: 90%;
@@ -111,6 +125,7 @@ nav {
 
 nav ul {
     list-style-type: none; 
+    color: var(--primary-text);;
     display: flex;
     gap: 2rem; 
 }
@@ -129,7 +144,7 @@ nav ul li a:hover {
 
 /* Estilos do Main */
 main {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--white-30);
     backdrop-filter: blur(10px);
     padding: 2rem;
     border: 1px solid rgba(0, 0, 0, 0.12);
@@ -144,4 +159,37 @@ main figure img {
     max-width: 100px; 
     height: auto;
     margin-bottom: 1rem;
+}
+
+nav ul {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-text);
+    font-size: 1.5rem; 
+    transition: color 0.2s ease;
+}
+
+@media (max-width: 600px) {
+    header {
+        height: 7dvh;
+    }
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        list-style-type: decimal; 
+        font-size: 1.2rem; 
+        gap: 1rem;
+    }
+    nav {
+        width: 14dvh;
+    }
 }

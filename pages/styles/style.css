@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Omori-Font";
-  src: url('./fonts/OMORI_GAME2.ttf');
+  src: url('/media/fonts/OMORI_GAME2.ttf');
 }
 
 html {
@@ -8,7 +8,7 @@ html {
   height: 100%;
 }
 *, *::before, *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 :root {
@@ -152,7 +152,6 @@ main.whitespace {
   gap: 0;
   padding: 0;
   margin: 0;
-  margin-right: 10vmin;
 }
 /* LAPTOP */
 #laptop img {
@@ -176,8 +175,8 @@ main.whitespace {
 /* TISSUE BOX */
 #tissue-box img {
   position: absolute;
-  height: 11vmin;
-  min-height: 40px;
+  height: 12vmin;
+  min-height: 12vmin;
   transition: all 0.1s ease;
 }
 
@@ -188,22 +187,25 @@ main.whitespace {
     position: absolute;
     top: 0;
     left: 50%;
+    margin: 0;
     right: auto;
     transform: translateX(-50%);
     align-items: center;
   }
 
-  .laptop img {
-    height: 18vmin;
+  #laptop img {
+    height: 20vmin;
   }
-  .tissue-box img {
-    height: 18vmin;
-  }
-
-  .scketchbook img {
-    height: 18vmin;
+  #tissue-box img {
+    height: 20vmin;
   }
 
+  #scketchbook img {
+    height: 20vmin;
+  }
+  .top-incarpet{
+    margin-right: 100px;
+  }
   #bulb {
     height: 30vmin;
     position: static;
