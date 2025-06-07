@@ -38,7 +38,7 @@ body[data-theme='dark'] {
 
 /* Estilos Gerais do Body */
 body {
-    font-family: sans-serif; /* Fonte padrão */
+    font-family: sans-serif; 
     background-color: var(--primary-bg);
     background-image: var(--body-bg-img);
     background-size: contain; 
@@ -51,7 +51,15 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease; 
     padding-top: 0; 
 }
-
+.omori-font-text{
+    font-family: "Omori-Font";
+    font-size:2.3rem;
+    color: var(--primary-text);
+}
+.content{
+    text-align: start;
+    font-size: 1.3rem;
+}
 header {
     box-shadow: 0 0 50px black;
     position: relative; 
@@ -120,11 +128,16 @@ nav {
     display: flex;
     justify-content: center;
     padding: 1%;
+    animation: fadeIn 0.5s forwards;
+    opacity: 0;
     margin-bottom: 2rem;
 }
 
 nav ul {
     list-style-type: none; 
+    align-items: center;
+    justify-content: center;
+    
     color: var(--primary-text);;
     display: flex;
     gap: 2rem; 
@@ -144,6 +157,8 @@ nav ul li a:hover {
 
 /* Estilos do Main */
 main {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
     background-color: var(--white-30);
     backdrop-filter: blur(10px);
     padding: 2rem;
@@ -151,8 +166,9 @@ main {
     border-radius: 10px;
     text-align: center;
     max-width: 800px;
-    width: 90%;
+    width: 90vw;
     box-shadow: rgba(204, 209, 255, 0.25);
+    margin-bottom: 100px;
 }
 
 main figure img {
@@ -178,9 +194,20 @@ nav ul li a {
     transition: color 0.2s ease;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 600px) {
     header {
-        height: 7dvh;
+        height: 13dvh;
     }
     nav ul{
         display: flex;
@@ -190,6 +217,7 @@ nav ul li a {
         gap: 1rem;
     }
     nav {
-        width: 14dvh;
+        padding: 1rem;
+        width: 95%;
     }
 }

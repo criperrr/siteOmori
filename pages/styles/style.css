@@ -60,6 +60,8 @@ body[data-theme='dark'] {
 .light-bulb {
   position: absolute;
   top: 0px;
+  margin: 0;
+  padding: 0;
   right: 40px;
   display: flex;
   flex-direction: column;
@@ -78,11 +80,11 @@ body[data-theme='dark'] {
   height: 22vmin;
   padding-left: 15px;
   width: auto;
+  margin: 0;
   transition: all 0.3s ease;
 }
 
 #bulb-text {
-  margin-top: 10px;
   font-size: 6vmin;
   color: var(--dark);
   transition: all 0.3s ease;
@@ -147,39 +149,31 @@ main.whitespace {
   flex-direction:row-reverse;
   height: fit-content;
   flex: 1;
-  justify-content: end;
-  align-items: end;
-  gap: 0;
-  padding: 0;
-  margin: 0;
+  margin-right: 15%;
 }
 /* LAPTOP */
-#laptop img {
-  position: absolute;
-  cursor: pointer;
-  padding-left: 15px;
-  height: 13vmin;
-  min-height: 50px;
-  transition: all 0.1s ease;
-}
-
-/* SKETCHBOOK */
-#scketchbook img {
-  position: absolute;
-  height: 13vmin;
-  cursor: pointer;
-  min-height: 40px;
-  transition: all 0.1s ease;
-}
-
-/* TISSUE BOX */
+#laptop img,
+#scketchbook img,
 #tissue-box img {
   position: absolute;
-  height: 12vmin;
-  min-height: 12vmin;
+  cursor: pointer;
+  height: 13vmin;
+  min-height: 10vmin;
   transition: all 0.1s ease;
 }
-
+/* SKETCHBOOK MODAL */
+.omori-sketchbook{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
 
 /* MEDIA QUERIES */
 @media (max-width: 600px) {
