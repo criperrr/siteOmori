@@ -4,6 +4,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -249,10 +250,11 @@ nav ul li a:hover {
 
 .pages-content img {
     border-radius: 12px;
-    padding: 20px;
+    padding: 10px;
     background-color: var(--white-30);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: 200ms;
+    height: 35rem;
 }
 
 .pages-content figcaption {
@@ -392,5 +394,19 @@ nav ul li a:hover {
         padding-top: 1rem;
         padding-bottom: 1rem;
         width: fit-content;
+    }
+    .pages-content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .pages-content img {
+        height: 25rem;
+    }
+}
+
+@media (max-width: 400px){
+    .pages-content img{
+        height: 19rem;
     }
 }

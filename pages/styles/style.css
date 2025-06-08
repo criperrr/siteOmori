@@ -161,7 +161,7 @@ main.whitespace {
   transition: all 0.1s ease;
 }
 #scketchbook img{
-  cursor: pointer;
+  cursor: pointer-;
 }
 
 /* SKETCHBOOK MODAL */
