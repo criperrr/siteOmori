@@ -1,32 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('header');
+  const backgroundLayer = document.getElementById('background-layer');
+  const body = document.body;
+  const theme = localStorage.getItem('theme') || 'light';
+  const isDark = theme === 'dark';
+  const currentFilter = isDark ? 'invert()' : '';
 
-    const header = document.getElementById('header');
-    const backgroundLayer = document.getElementById('background-layer');
-    let theme = localStorage.getItem('theme') || 'light';
-    let isDark = (theme === 'dark');
-    let currentFilter = (isDark)? 'invert()' : '';
-
-    function applyTheme() {
-        const body = document.body;
-        body.setAttribute('data-theme', theme);
-        if (backgroundLayer) {
-            backgroundLayer.style.filter = (!isDark)? currentFilter: `${currentFilter} brightness(75%)`;
-            console.log(`isDark: ${isDark}\n theme: ${theme}\n backgroundLayer.style.filter = ${backgroundLayer.style.filter}`);
-        }
-        
+  function applyTheme() {
+    body.setAttribute('data-theme', theme);
+    if (backgroundLayer) {
+      backgroundLayer.style.filter = isDark
+        ? `${currentFilter} brightness(75%)`
+        : currentFilter;
     }
-    applyTheme();
+  }
 
-    if (header && backgroundLayer) {
-        header.addEventListener('mouseover', () => {
-            backgroundLayer.style.filter = (isDark)? `${currentFilter} brightness(75%) `: `${currentFilter} `;
-            console.log(`currentFilter = ${ backgroundLayer.style.filter}`);
-        });
+  applyTheme();
 
-        header.addEventListener('mouseout', () => {
-            backgroundLayer.style.filter = (isDark)? `${currentFilter} brightness(75%)`: `${currentFilter}`;
-            console.log(`currentFilter = ${ backgroundLayer.style.filter}`);
-        });
-    }
-    
+  if (header && backgroundLayer) {
+    header.addEventListener('mouseover', () => {
+      backgroundLayer.style.filter = isDark
+        ? `${currentFilter} brightness(75%)`
+        : currentFilter;
+    });
+
+    header.addEventListener('mouseout', () => {
+      backgroundLayer.style.filter = isDark
+        ? `${currentFilter} brightness(75%)`
+        : currentFilter;
+    });
+  }
+  // Fade in effect
+  const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
+
+  const observerOptions = {
+    root: null, // null significa que o viewport do navegador é a área de observação
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  elementsToFadeIn.forEach(element => {
+    observer.observe(element);
+  });
 });

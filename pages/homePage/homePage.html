@@ -1,37 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt-BR"> <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMORI</title>
-    <link rel="icon" href="/media/image/omori_sprite_icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/pages/styles/homePage.css">
-    <script defer src="/pages/scripts/homePage.js"></script>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OMORI</title>
+  <link rel="icon" href="/media/image/omori_sprite_icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/pages/styles/homePage.css" />
+  <script defer src="/pages/scripts/homePage.js"></script>
 </head>
-<body >
+<body>
 
-    <header id="header">
-        <div id="background-layer"></div>
-        <div id="content">
-            <h1>OMORI</h1>
-        </div>
-    </header>
-    <a id="goBack" href="/index.html">Back to Whitespace</a></li>
-    <nav>
-        <ul>
-            <li><a href="/pages/contentPage1/placeholer.html">Antes de começar, o que é <span class="omori-font-text">OMORI</span>?</a></li>
-            <li><a href="/mainPage.html">Placeholder 2</a></li>
-            <li><a href="/mainPage.html">Placeholder 3</a></li>
-        </ul>
-    </nav>
+  <header id="header">
+    <div id="background-layer" aria-hidden="true"></div>
+    <div id="content">
+      <h1>OMORI</h1>
+    </div>
+  </header>
 
-    <main>
-        <h1>O que é <span style="font-size: 4rem;" class="omori-font-text">OMORI</span></h1>
-        <div class="content">
-            <p>
-                Omori é um jogo RPG de terror psicológico desenvolvido por Omocat. Lançado inicialmente como um projeto de crowdfunding, o jogo combina elementos de exploração, combate por turnos e narrativa envolvente. Os jogadores assumem o papel de Omori, um personagem que vive em um mundo onírico e surreal, enquanto exploram temas de amizade, perda e auto-descoberta.
-            </p>
-        </div>
-    </main>
+  <a id="goBack" href="/index.html">Back to Whitespace</a>
+
+  <nav aria-label="Navegação principal" class="fade-in-element">
+    <ul>
+      <li><a href="/pages/contentPage1/placeholer.html">Antes de começar, o que é <span class="omori-font-text">OMORI</span>?</a></li>
+      <li><a href="/mainPage.html">Placeholder 2</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <section class="content fade-in-element" aria-labelledby="main-title">
+      <h2 id="main-title">O que é <span style="font-size: 4rem;" class="omori-font-text">OMORI</span></h2>
+      <p>
+        OMORI é um jogo RPG de terror psicológico desenvolvido por OMOCAT. Lançado inicialmente como um projeto de crowdfunding, o jogo combina elementos de exploração, combate por turnos e narrativa envolvente. Os jogadores assumem o papel de OMORI, um personagem que vive em um mundo onírico e surreal, enquanto exploram temas de amizade, perda e auto-descoberta.
+      </p>
+    </section>
+
+    <section class="pages fade-in-element">
+      <figure>
+        <a href="headspace.html">
+          <img src="/media/image/elements/single/Album_piquinique.webp" alt="headspace-album" height="400" />
+        </a>
+        <span class="omori-font-text">OMORI e seus amigos num piquinique</span>
+      </figure>
+      <figure>
+        <a href="#">
+          <img src="/media/image/elements/single/Album_real.webp" alt="real-album" height="400" />
+        </a>
+        <span class="omori-font-text">SUNNY e seus amigos num piquinique</span>
+      </figure>
+    </section>
+  </main>
 
 </body>
 </html>
