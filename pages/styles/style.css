@@ -156,11 +156,14 @@ main.whitespace {
 #scketchbook img,
 #tissue-box img {
   position: absolute;
-  cursor: pointer;
   height: 13vmin;
   min-height: 10vmin;
   transition: all 0.1s ease;
 }
+#scketchbook img{
+  cursor: pointer;
+}
+
 /* SKETCHBOOK MODAL */
 .omori-sketchbook{
   position: fixed;

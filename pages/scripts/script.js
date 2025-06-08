@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Temas escuro/claro (coleta e salva no )
   const bulb = document.getElementById('bulb');
   const themeToggle = document.getElementById('theme-toggle');
-  let theme = localStorage.getItem('theme') || 'light';
+  let theme = sessionStorage.getItem('theme') || 'light';
   applyTheme(theme);
 
   const header = document.querySelector('.header');
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       theme = theme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', theme);
+      sessionStorage.setItem('theme', theme);
       applyTheme(theme);
     });
   }
@@ -29,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     bulb.style.filter = isDark
       ? 'drop-shadow(0px 0px 100px var(--dark))'
       : 'invert() drop-shadow(0px 0px 10px var(--dark))';
-
     const whitespace = document.getElementById('whitespace');
     whitespace.classList.toggle('dark', isDark);
   }

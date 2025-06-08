@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
 
   // Carrega o tema salvo ou usa 'light' como padrão
-  const theme = localStorage.getItem('theme') || 'light';
+  const theme = sessionStorage.getItem('theme') || 'light';
   const isDark = theme === 'dark';
 
   // Função para aplicar o tema visualmente

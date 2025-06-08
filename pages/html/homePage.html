@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OMORI</title>
+  <link rel="icon" href="/media/image/omori_sprite_icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/pages/styles/homePage.css" />
+  <script defer src="/pages/scripts/homePage.js"></script>
+</head>
+<body>
+  <header id="header">
+    <div id="background-layer" aria-hidden="true"></div>
+    <div id="content">
+      <h1>OMORI</h1>
+    </div>
+  </header>
+
+  <a id="goBack" href="/index.html">Voltar ao WHITESPACE</a>
+
+  <nav aria-label="Navegação principal" class="fade-in-element">
+    <ul>
+      <li><a href="#main-title">O que é OMORI?</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <section class="content fade-in-element" aria-labelledby="main-title">
+      <h2 id="main-title">DO QUE SE TRATA OMORI</h2>
+      <p>
+        OMORI é um jogo RPG de terror psicológico desenvolvido por OMOCAT. Lançado inicialmente como um projeto de crowdfunding, o jogo combina elementos de exploração, combate por turnos e narrativa envolvente. Os jogadores assumem o papel de OMORI, um personagem que vive em um mundo onírico e surreal, enquanto exploram temas de amizade, perda e auto-descoberta.
+      </p>
+    </section>
+
+    <section class="pages fade-in-element">
+      <h1 id="galeria" style="font-size: 4rem;" class="omori-font-text">Galeria</h1>
+      
+      <div class="pages-content">
+        <figure>
+          <img 
+            class="gallery-image"
+            src="/media/image/elements/single/Album_piquinique.webp" 
+            alt="headspace-album" 
+            height="400"
+            data-description="Esta é a descrição do HEADSPACE. Um mundo colorido e vibrante que esconde segredos profundos. Explore os vários locais e descubra as memórias esquecidas."
+            data-link="headspace.html"
+          />
+          <figcaption class="omori-font-text">HEADSPACE</figcaption>
+        </figure>
+
+        <figure>
+          <img 
+            class="gallery-image"
+            src="/media/image/elements/single/Album_real.webp" 
+            alt="real-album" 
+            height="400"
+            data-description="Esta é a descrição do MUNDO REAL. A realidade pode ser mais assustadora que os sonhos. Acompanhe SUNNY em sua jornada para reconectar-se com seus amigos e enfrentar a verdade."
+            data-link="#"
+          />
+          <figcaption class="omori-font-text">MUNDO REAL</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <div id="imageModal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close">&times;</button>
+      <p id="modalDescription"></p>
+      <a id="modalLink" href="#" class="modal-button omori-font-text">Acessar Galeria</a>
+    </div>
+  </div>
+
+  <script src="/pages/scripts/homePage.js"></script>
+</body>
+</html>
