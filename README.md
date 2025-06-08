@@ -23,38 +23,46 @@ As a school work, and for hobbie, me and my friend decided to make a site about 
 .
 ├── index.html
 ├── media
-│   ├── audio
-│   │   └── SFX
-│   │       └── mewo.mp3
-│   ├── fonts
-│   │   └── OMORI_GAME2.ttf
-│   └── image
-│       ├── background
-│       │   ├── dark_whitespace_backdrop.jpg
-│       │   └── headspace_purple_backdrop.png
-│       ├── elements
-│       │   ├── omori
-│       │   │   └── omori_static.png
-│       │   └── single
-│       │       ├── bulb_black_theme.gif
-│       │       ├── door.png
-│       │       ├── mewo.gif
-│       │       ├── omori_whitespace_computer.gif
-│       │       ├── whitespace_scketchbook.png
-│       │       └── whitespace_tissue_box.png
-│       └── page-icons
-│           └── index.png
-└── pages
-    ├── homePage
-    │   └── homePage.html
-    ├── scripts
-    │   ├── homePage.js
-    │   └── script.js
-    └── styles
-        ├── homePage.css
-        └── style.css
-
-14 directories, 18 files
+│   ├── audio
+│   │   └── SFX
+│   │       └── mewo.mp3
+│   ├── fonts
+│   │   └── OMORI_GAME2.ttf
+│   └── image
+│       ├── background
+│       │   ├── dark_whitespace_backdrop.jpg
+│       │   ├── headspace_purple_backdrop.png
+│       │   └── picnic_cloth.jpg
+│       ├── elements
+│       │   ├── omori
+│       │   │   └── omori_static.png
+│       │   ├── single
+│       │   │   ├── Album_duetoFinal.webp
+│       │   │   ├── Album_piquinique.webp
+│       │   │   ├── Album_real.webp
+│       │   │   ├── bulb_black_theme.gif
+│       │   │   ├── door.png
+│       │   │   ├── mewo.gif
+│       │   │   ├── omori_whitespace_computer.gif
+│       │   │   ├── whitespace_scketchbook.png
+│       │   │   └── whitespace_tissue_box.png
+│       │   └── sketchbook
+│       │       └── Whitespace_Sketchbook_Cover.webp
+│       └── page-icons
+│           └── index.png
+├── pages
+│   ├── homePage
+│   │   ├── headspace.html
+│   │   └── homePage.html
+│   ├── scripts
+│   │   ├── homePage.js
+│   │   └── script.js
+│   └── styles
+│       ├── headspace.css
+│       ├── homePage.css
+│       └── style.css
+└── README.md
+15 directories, 26 files
 ```
 *I'll try to update this soon as possible.*
 
