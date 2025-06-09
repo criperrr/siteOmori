@@ -6,7 +6,7 @@
   <title>OMORI</title>
   <link rel="icon" href="/media/image/omori_sprite_icon.png" type="image/x-icon" />
   <link rel="stylesheet" href="/pages/styles/homePage.css" />
-  <script defer src="/pages/scripts/homePage.js"></script>
+  <script defer src="/pages/scripts/headsPase.js"></script>
 </head>
 <body>
   <header id="header">
@@ -42,16 +42,21 @@
       <p>
         Posteriormente, passa a jogar como SUNNY, um garoto no mundo real.
         SUNNY se trancou no seu quarto por quatro anos após a morte de sua irmã, MARI.
-        Na primeira vez que você ACORDA, você é convidado por KEL a sair de casa.
+        Na primeira vez que você ACORDA, você é convidado por KEL (um dos seus amigos de) a sair de casa.
       </p>
       <br>
       <p>
-        
+        BASIL é um dos seus amigos. Ele gosta muito de plantas, flores e fotografia.
+        Ele tem um álbum de fotos que tirou de seus amigos.
+      </p>
+      <br>
+      <p>
+        Abaixo, estão as fotos que estão no mundo do sonhos (memórias de infância do SUNNY) e no mundo real, ainda existente.
       </p>
     </section>
 
     <section class="pages fade-in-element">
-      <h1 id="galeria" style="font-size: 4rem;" class="omori-font-text">Galeria</h1>
+      <h1 id="galeria" style="font-size: 4rem;" >Galeria</h1>
       
       <div class="pages-content">
         <figure>
@@ -63,7 +68,7 @@
             data-link="headspace.html"
             draggable="false"
           />
-          <figcaption class="omori-font-text">HEADSPACE</figcaption>
+          <figcaption >HEADSPACE</figcaption>
         </figure>
 
         <figure>
@@ -75,17 +80,20 @@
             data-link="faraway.html"
             draggable="false"
           />
-          <figcaption class="omori-font-text">MUNDO REAL</figcaption>
+          <figcaption >MUNDO REAL</figcaption>
         </figure>
       </div>
     </section>
   </main>
   <footer id="blackspace-content">
     <section class="fade-in-element"  id="content-1">
-      <h1 class="bs-title">Sunny,</h1>
+      <h1 class="bs-title">Sunny...</h1>
     </section>
     <section class="fade-in-element" id="content-2">
-      <h1 class="bs-title">Não importa o que aconteça</h1>
+      <h1 class="bs-title">Aconteça o que acontecer...</h1>
+    </section>
+    <section class="fade-in-element" id="content-3">
+      <h1 class="bs-title">Eu sempre estarei ao seu lado.</h1>
     </section>
     <figure>
       <img 
@@ -99,13 +107,14 @@
     </figure>
   </footer>
 
-  <div id="imageModal" class="modal-overlay">
-    <div class="modal-content">
-      <button id="closeModal" class="modal-close">&times;</button>
+  <dialog id="imageModal" class="modal-overlay">
+    <div class="modal-content gallery-modal">
+      <button id="closeModal" class="modal-close" aria-label="Fechar modal">&times;</button>
       <p id="modalDescription"></p>
-      <a id="modalLink" href="#" class="modal-button omori-font-text" draggable="false">Acessar Galeria</a>
+      <a id="modalLink" href="#" class="modal-button" draggable="false">Acessar álbum</a>
     </div>
-  </div>
+  </dialog>
+
 
   <script src="/pages/scripts/homePage.js"></script>
 </body>

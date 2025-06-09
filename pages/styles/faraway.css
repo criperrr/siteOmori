@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: "Omori-Font";
-    src: url('/media/fonts/OMORI_GAME2.ttf');
+    src: url('/media/fonts/OMORI_GAME3.ttf');
 }
 
 :root {
@@ -36,7 +36,8 @@ body[data-theme='dark'] {
 
 /* Estilos Gerais do Body */
 body {
-    font-family: "Google Sans Text Regular"; 
+    font-family: "Omori-Font";
+    font-size: 2rem;
     background-color: var(--primary-bg);
     background-image: var(--body-bg-img);
     background-size: contain; 
@@ -92,6 +93,11 @@ header {
     border: 1px solid rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     z-index: 9999;
+    transition: 250ms;
+}
+
+#goBack:hover {
+  scale: 1.02;
 }
 
 #background-layer {
