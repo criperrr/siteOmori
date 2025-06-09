@@ -53,7 +53,6 @@ body {
     background-image: var(--body-bg-img);
     background-size: contain; 
     background-position: center;
-    background-attachment: fixed; 
     color: var(--primary-text);
     display: flex;
     flex-direction: column;
@@ -410,10 +409,17 @@ nav ul li a:hover {
     position: relative;
 }
 
-#blackspace-content #content{
+#blackspace-content .fade-in-element {
     text-align: center;
     position: absolute;
+}
+
+#blackspace-content #content-1{
     bottom: 80%;
+}
+
+#blackspace-content #content-2{
+    bottom: 50%;
 }
 
 #blackspace-content figure {
