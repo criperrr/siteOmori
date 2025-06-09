@@ -22,6 +22,7 @@
     <ul>
       <li><a href="#main-title">O que é OMORI?</a></li>
       <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#bs-title">???</a></li>
     </ul>
   </nav>
 
@@ -44,6 +45,7 @@
             alt="headspace-album" 
             data-description="Esta é a descrição do HEADSPACE. Um mundo colorido e vibrante que esconde segredos profundos. Explore os vários locais e descubra as memórias esquecidas."
             data-link="headspace.html"
+            draggable="false"
           />
           <figcaption class="omori-font-text">HEADSPACE</figcaption>
         </figure>
@@ -54,19 +56,35 @@
             src="/media/image/elements/single/Album_real.webp" 
             alt="real-album" 
             data-description="Esta é a descrição do MUNDO REAL. A realidade pode ser mais assustadora que os sonhos. Acompanhe SUNNY em sua jornada para reconectar-se com seus amigos e enfrentar a verdade."
-            data-link="#"
+            data-link="faraway.html"
+            draggable="false"
           />
           <figcaption class="omori-font-text">MUNDO REAL</figcaption>
         </figure>
       </div>
     </section>
   </main>
+  <footer id="blackspace-content">
+    <div id="content">
+      <h1 id="bs-title">Tem certeza que deseja continuar?</h1>
+    </div>
+    <figure>
+      <img 
+        class="gallery-image"
+        src="/media/image/elements/single/blackspace_hole.png"
+        alt="Buraco para o Blackspace"
+        data-description="Esta é a descrição do BLACKSPACE. OMORI escondeu seus piores pensamentos no mais profundo buraco de sua mente. Deseja mesmo passar por estas recordações?"
+        data-link="blackspace.html"
+        draggable="false"
+      />
+    </figure>
+  </footer>
 
   <div id="imageModal" class="modal-overlay">
     <div class="modal-content">
       <button id="closeModal" class="modal-close">&times;</button>
       <p id="modalDescription"></p>
-      <a id="modalLink" href="#" class="modal-button omori-font-text">Acessar Galeria</a>
+      <a id="modalLink" href="#" class="modal-button omori-font-text" draggable="false">Acessar Galeria</a>
     </div>
   </div>
 
