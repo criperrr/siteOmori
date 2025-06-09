@@ -1,15 +1,20 @@
 @import url(https://db.onlinewebfonts.com/c/41cdafd19e156a1f74759f9c88b878ff?family=Google+Sans+Text+Regular);
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rubik:ital,wght@0,300..900;1,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    height: 100%;
+    width: 100%;
+
+}
 
 @font-face {
     font-family: "Omori-Font";
-    src: url('/media/fonts/OMORI_GAME2.ttf');
+    src: url('/media/fonts/OMORI_GAME3.ttf');
 }
 
 :root {
@@ -42,7 +47,8 @@ body[data-theme='dark'] {
 
 /* Estilos Gerais do Body */
 body {
-    font-family: "Google Sans Text Regular"; 
+    font-family: "Omori-Font"; 
+    font-size: 2rem;
     background-color: var(--primary-bg);
     background-image: var(--body-bg-img);
     background-size: contain; 
@@ -64,7 +70,7 @@ body {
 
 .content {
     text-align: start;
-    font-size: 1.3rem;
+    font-size: 2.5rem;
 }
 
 header {
@@ -146,7 +152,7 @@ nav ul {
     justify-content: center;
     color: var(--primary-text);
     gap: 2rem; 
-    font-size: 1.5rem;
+    font-size: 2.5rem;
 }
 
 nav ul li {
@@ -156,7 +162,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: var(--primary-text);
-    font-size: 1.5rem; 
+    font-size: 2.5rem; 
     transition: color 0.2s ease;
 }
 
@@ -181,7 +187,7 @@ nav ul li a:hover {
 
 #main-content > section #main-title {
     font-family: "Omori-Font";
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 500;
 }
 
@@ -193,6 +199,23 @@ nav ul li a:hover {
 #main-content > section:hover {
     backdrop-filter: blur(15px);
     scale: 1.01;
+}
+
+#blackspace-content > section {
+    background-color: var(--white-30);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    text-align: center;
+    max-width: 80vw;
+    box-shadow: rgba(204, 209, 255, 0.25);
+    transition: 600ms;
+    margin-bottom: 100px;
+}
+
+#blackspace-content > section:hover {
+    backdrop-filter: blur(15px);
 }
 
 .left, .right{
@@ -219,13 +242,7 @@ nav ul li a:hover {
     margin-right: 20px;
 }
 
-.pages-content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 3rem;
-    flex-wrap: wrap;
-}
+
 
 .pages {
     display: flex;
@@ -237,29 +254,42 @@ nav ul li a:hover {
     width: 100%;
 }
 
+.pages-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+}
+
 .pages-content figure {
-    text-align: center;
-    cursor: pointer; 
-    transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .pages-content figure:hover {
-    transform: scale(1.05);
-    font-size: 2.3rem;
+  transform: scale(1.05);
 }
 
 .pages-content img {
-    border-radius: 12px;
-    padding: 10px;
-    background-color: var(--white-30);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: 200ms;
-    height: 35rem;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: var(--white-30);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: 200ms;
+  object-fit: cover;
 }
 
 .pages-content figcaption {
-    margin-top: 1rem;
-    font-size: 2rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  word-wrap: break-word;
 }
 
 .pages-content img:hover {
@@ -321,8 +351,7 @@ nav ul li a:hover {
 }
 
 .modal-content p {
-    font-family: "Google Sans Text Regular";
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -365,7 +394,7 @@ nav ul li a:hover {
     position: absolute;
     left: 0%;
     width: 100%;
-    height: 300%;
+    height: 400dvh;
     content: "";
     background: linear-gradient(to top, black, transparent);
     pointer-events: none;
@@ -376,7 +405,8 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 350vh;
+    justify-content: space-between;
+    height: 450dvh;
     position: relative;
 }
 
@@ -422,37 +452,49 @@ nav ul li a:hover {
     flex-direction: column;
     gap: 20px;
   }
+
+  .pages-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .pages-content figure {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .pages-content img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media (max-width: 600px) {
-    header {
-        height: 13dvh;
-    }
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        list-style-type: decimal; 
-        font-size: 1.2rem; 
-        gap: 1rem;
-    }
-    nav {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        width: fit-content;
-    }
-    .pages-content{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .pages-content img {
-        height: 25rem;
-    }
-}
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.2rem;
+    gap: 1rem;
+  }
 
-@media (max-width: 400px){
-    .pages-content img{
-        height: 19rem;
-    }
+  nav {
+    padding: 1rem;
+    width: fit-content;
+  }
+
+  header {
+    height: 13dvh;
+  }
+
+  .pages-content img {
+    height: auto;
+  }
+}
+@media (max-width: 400px) {
+  .pages-content img {
+    height: auto;
+    max-height: 19rem;
+  }
 }
