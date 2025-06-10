@@ -42,7 +42,6 @@ body[data-theme="dark"] {
     --body-bg-img: url("/media/image/background/dark_whitespace_backdrop.jpg");
     --link-hover: rgba(255, 255, 255, 0.8);
     --header-text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
-    
 }
 
 /* Estilos Gerais do Body */
