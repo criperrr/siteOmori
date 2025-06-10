@@ -270,7 +270,7 @@ footer {
   border-radius: 15px; 
   width: 90%; 
   max-width: 600px;
-  max-height: 80vh; /* Garante que o conteúdo não ultrapasse a altura da tela */
+  max-height: 100vh; /* Garante que o conteúdo não ultrapasse a altura da tela */
   overflow-y: auto; /* Adiciona scroll se o conteúdo for muito grande */
   text-align: center; 
   position: relative;
