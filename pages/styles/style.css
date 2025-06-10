@@ -1,15 +1,12 @@
 @font-face {
   font-family: "Omori-Font";
-  src: url('/media/fonts/OMORI_GAME2.ttf');
+  src: url('/media/fonts/OMORI_GAME3.ttf');
 }
 
 html {
-  box-sizing: border-box;
   height: 100%;
 }
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+
 
 :root {
   --white: #ffffff;
@@ -184,7 +181,7 @@ main.whitespace {
 }
 
 .modal-content.gallery-modal {
-  background-color: var(--white);
+  background-color: rgba(0, 0, 0, 0);
   color: var(--primary-text);
   padding: 1rem;
   border-radius: 15px;
