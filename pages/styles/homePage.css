@@ -42,6 +42,7 @@ body[data-theme="dark"] {
     --body-bg-img: url("/media/image/background/dark_whitespace_backdrop.jpg");
     --link-hover: rgba(255, 255, 255, 0.8);
     --header-text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+    
 }
 
 /* Estilos Gerais do Body */
@@ -290,6 +291,9 @@ nav ul li a:hover {
 #blackspace-content img {
     cursor: pointer;
     transition: 300ms;
+    max-width: 100%; 
+    height: auto;    
+
 }
 
 #blackspace-content img:hover {
@@ -440,9 +444,30 @@ footer {
     .footer-items { font-size: 1.7rem; width: auto; left: 10px; right: 10px; }
     #text-goBack { display: none; }
     .footer-items #icon-goBack { display: block; }
-    .footer-mention { flex-direction: column; }
+    .footer-mention { flex-direction: row; }
 }
 
 @media (max-width: 400px) {
     .pages-content img { max-height: 19rem; }
+}
+
+@media (max-width: 600px) {
+    footer {
+        padding: 15px; 
+    }
+    .footer-items {
+        flex-direction: row; 
+        justify-content: space-between;
+        gap: 1rem; 
+        font-size: 2rem;
+    }
+    .footer-mention{
+        font-size: 1rem;
+    }
+    #text-goBack {
+        display: none; 
+    }
+    #icon-goBack {
+        display: block; 
+    }
 }

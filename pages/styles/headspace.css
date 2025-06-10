@@ -38,6 +38,7 @@ body[data-theme="dark"] {
   --white-30: rgba(0, 0, 0, 0.7);
   --dark-50: rgba(255, 255, 255, 0.8);
   --dark: #ffffff;
+  --body-bg-img: url("/media/image/background/picnic_cloth_dark.png");
   --primary-bg: #1a1a1a;
   --primary-text: #ffffff;
   --link-hover: rgba(255, 255, 255, 0.8);
