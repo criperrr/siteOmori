@@ -6,7 +6,7 @@
     <title>BLACKSPACE</title>
     <link rel="icon" href="/media/image/omori_sprite_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/pages/styles/blackspace.css">
-    <script defer src="/pages/scripts/homePage.js"></script>
+    <script defer src="/pages/scripts/headsPace.js"></script>
 </head>
 <body>
     <header id="header">
@@ -16,24 +16,47 @@
         </div>
     </header>
 
-    <nav>
-        <a id="goBack" href="/pages/html/homePage.html">Voltar à página principal</a>
-    </nav>
+
 
     <main>
         <section class="intro">
             <h2 class="omori-font-text">WELCOME TO BLACKSPACE</h2>
         </section>
+        <section class="images fade-in-element">
+            <div class="images-content">
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/" 
+                    alt="headspace-album" 
+                    data-description=""
+                    draggable="false"
+                />
+                </figure>
+            </div>
+        </section>
     </main>
 
     <footer>
     <div class="footer-items">
-        <a id="goBack" href="/pages/html/homePage.html">Voltar à página principal</a>
-        <div class="footer-mention">
-          <a href="">@hrkms</a> & <a href="">@criperrr</a>
-        </div>
+      <a id="icon-goBack" href="/pages/html/homePage.html" draggable="false">Voltar</a>
+      <a id="text-goBack" href="/pages/html/homePage.html" draggable="false">Voltar à página principal</a>
+      <div class="footer-mention">
+        <a href="https://github.com/henriqclaro" draggable="false">@hrkms</a> & <a href="https://github.com/criperrr" draggable="false">@criperrr</a>
+      </div>
     </div>
     </footer>
+
+    <dialog id="imageModal" class="modal-overlay">
+        <div class="modal-content gallery-modal">
+            <button id="closeModal" class="modal-close">&times;</button>
+            <button id="prevBtn" class="nav-arrow">&#8592;</button>
+            <img id="modalImage" src="" alt="Imagem ampliada" draggable="false" />
+            <button id="nextBtn" class="nav-arrow">&#8594;</button>
+            <p id="modalDescription"></p>
+            <button id="modalLink" class="modal-button omori-font-text" draggable="false">OK</button>
+        </div>
+    </dialog>
 
 </body>
 </html>
