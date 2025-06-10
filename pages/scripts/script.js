@@ -1,116 +1,125 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Temas escuro/claro (coleta e salva no )
-  const bulb = document.getElementById('bulb');
+
+  // --- Seletores de Elementos ---
   const themeToggle = document.getElementById('theme-toggle');
-  let theme = sessionStorage.getItem('theme') || 'light';
-  applyTheme(theme);
+  const bulbImg = document.getElementById('bulb-img');
+  const body = document.body;
+  
+  const mewoImg = document.getElementById('mewo-img');
+  const mewoAudio = document.getElementById('mewo-audio');
+  
+  const doorLink = document.getElementById('door-link');
+  const doorModal = document.getElementById('door-modal');
+  const cancelDoorBtn = document.getElementById('cancel-door-btn');
 
-  const header = document.querySelector('.header');
-  if (header) header.style.display = 'none';
+  const sketchbookBtn = document.getElementById('sketchbook-btn');
+  const galleryModal = document.getElementById('gallery-modal');
+  const modalImage = document.getElementById('modal-image');
+  const closeGalleryBtn = document.getElementById('close-gallery-btn');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  // --- Dados da Galeria ---
+  const galleryImagePaths = [
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Cover.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_1-2.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_3-4.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_5-6.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_7-8.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_9-10.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_11-12.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_13-14.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_15-16.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_17-18.webp",
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Cover.webp"
+  ];
+  let currentImageIndex = 0;
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      theme = theme === 'dark' ? 'light' : 'dark';
-      sessionStorage.setItem('theme', theme);
-      applyTheme(theme);
-    });
-  }
-
-  function applyTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    const isDark = theme === 'dark';
-    const filterStyle = isDark ? 'invert()' : 'none';
-    const filterDesaturate = isDark ? 'saturate(0)' : 'none';
-    
-    document.getElementById('door').style.filter = filterStyle;
-    document.getElementById('tissue-box').style.filter = filterStyle;
-    document.getElementById('laptop').style.filter = filterStyle;
-    document.getElementById('mewo').style.filter = filterStyle;
-    document.getElementById('scketchbook')
-    bulb.style.filter = isDark
+  // --- Lógica de Troca de Tema ---
+  let currentTheme = sessionStorage.getItem('theme') || 'light';
+  
+  const applyTheme = (theme) => {
+    body.setAttribute('data-theme', theme);
+    // Apenas a lógica do drop-shadow da lâmpada permanece aqui, pois é mais complexa.
+    // O resto é tratado pelo CSS.
+    bulbImg.style.filter = theme === 'dark'
       ? 'drop-shadow(0px 0px 100px var(--dark))'
-      : 'invert() drop-shadow(0px 0px 10px var(--dark))';
-    const whitespace = document.getElementById('whitespace');
-    whitespace.classList.toggle('dark', isDark);
-  }
-  // Modais
-const sketchbookBtn = document.getElementById('scketchbook');
-  const galleryImages = document.querySelectorAll('.gallery-image');
-  const modal = document.getElementById('imageModal');
-  const modalImage = document.getElementById('modalImage');
-  const closeModalBtn = document.getElementById('closeModal');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-
-  let currentIndex = 0;
-  let galleryData = [];
-
-  // Verifica se existe o modal e as imagens para a galeria
-  if (modal && galleryImages.length > 0) {
-    // Carrega os dados das imagens para o array galleryData
-    galleryData = Array.from(galleryImages).map(img => ({
-        src: img.src,
-        description: img.dataset.description,
-    }));
-
-    const updateModal = () => {
-        if (galleryData.length === 0) return;
-        const current = galleryData[currentIndex];
-        modalImage.src = current.src;
-    };  
-
-    const showModal = (index) => {
-        currentIndex = index;
-        updateModal();
-        modal.classList.add('visible'); // Usa a classe CSS para exibir
-        // Em vez de .showModal(), usamos a classe para ter a transição
-        if (typeof modal.showModal === "function") {
-            modal.showModal(); 
-        }
-    };
-
-    const hideModal = () => {
-        modal.classList.remove('visible');
-        if (typeof modal.close === "function") {
-            modal.close();
-        }
-    };
-
-    // **GATILHO PRINCIPAL**: Abrir o modal ao clicar no SKETCHBOOK
-    if (sketchbookBtn) {
-        sketchbookBtn.addEventListener('click', () => {
-            showModal(0); // Abre o modal começando pela primeira imagem (índice 0)
-        });
-    }
-
-    // Eventos para fechar o modal e navegar
-    if (closeModalBtn) closeModalBtn.addEventListener('click', hideModal);
+      : 'invert(1)';
     
-    modal.addEventListener('click', (event) => {
-        if (event.target === modal) hideModal();
-    });
+  };
+  
+  applyTheme(currentTheme);
 
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
-            updateModal();
-        });
+  themeToggle.addEventListener('click', () => {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    sessionStorage.setItem('theme', currentTheme);
+    applyTheme(currentTheme);
+  });
+  
+  // --- Interação com Mewo ---
+  const playMewoSound = () => {
+    if (mewoAudio) {
+      mewoAudio.pause();
+      mewoAudio.currentTime = 0.24; // quase no momento q o mewo fala meow
+      mewoAudio.play();
     }
+  };
+  
+  mewoImg.addEventListener('click', playMewoSound);
 
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % galleryData.length;
-            updateModal();
-        });
+  // --- Lógica do Modal de Confirmação da Porta ---
+  doorLink.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    if (doorModal && typeof doorModal.showModal === 'function') {
+      doorModal.showModal();
     }
-  }
+  });
+  
+  cancelDoorBtn.addEventListener('click', () => {
+    if (doorModal && typeof doorModal.close === 'function') {
+      doorModal.close();
+    }
+  });
+
+  // --- Lógica da Galeria do Sketchbook ---
+  const updateGalleryImage = () => {
+    modalImage.src = galleryImagePaths[currentImageIndex];
+  };
+
+  const showGalleryModal = (index) => {
+    currentImageIndex = index;
+    updateGalleryImage();
+    if (galleryModal && typeof galleryModal.showModal === 'function') {
+      galleryModal.showModal();
+    }
+  };
+
+  const hideGalleryModal = () => {
+    if (galleryModal && typeof galleryModal.close === 'function') {
+      galleryModal.close();
+    }
+  };
+
+  sketchbookBtn.addEventListener('click', () => {
+    showGalleryModal(0); // Abre na primeira imagem
+  });
+
+  closeGalleryBtn.addEventListener('click', hideGalleryModal);
+  
+  prevBtn.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + galleryImagePaths.length) % galleryImagePaths.length;
+    updateGalleryImage();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % galleryImagePaths.length;
+    updateGalleryImage();
+  });
+  
+  galleryModal.addEventListener('click', (event) => {
+    if (event.target === galleryModal) {
+      hideGalleryModal();
+    }
+  });
 
 });
-function playMewo() {
-  const elem = document.getElementById("mewoMeow"); 
-  if (elem) {
-    elem.pause(); 
-    elem.currentTime = 0.2495; // quase exatamente qnd o mewo fala meow
-    elem.play();
-  }
-}

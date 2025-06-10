@@ -4,149 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OMORI</title>
-  <link rel="icon" href="media/image/page-icons/index.png" type="image/x-icon" />
+  <link rel="icon" href="/media/image/page-icons/index.png" type="image/x-icon" />
   <link rel="stylesheet" href="/pages/styles/style.css"/>
   <script defer src="pages/scripts/script.js"></script>
 </head>
+
 <body>
 
-  <dialog id="imageModal" class="modal-overlay">
-      <div class="modal-content gallery-modal">
-          <button id="closeModal" class="modal-close">&times;</button>
-          <button id="prevBtn" class="nav-arrow"><img src="/media/image/elements/red_hands/red_hands_left.png" height="30px"></button>
-          <img id="modalImage" src="" alt="Imagem ampliada" draggable="false" />
-          <button id="nextBtn" class="nav-arrow"><img src="/media/image/elements/red_hands/red_hands_right.png" height="30px"></button>
+  <dialog id="gallery-modal" class="modal-container">
+    <div class="modal-content gallery-content">
+      <button id="close-gallery-btn" class="modal-close" aria-label="Fechar galeria">&times;</button>
+      <button id="prev-btn" class="nav-arrow" aria-label="Imagem anterior"><img src="/media/image/elements/red_hands/red_hands_left.png" height="30"></button>
+      <img id="modal-image" src="" alt="Imagem ampliada da galeria" draggable="false" />
+      <button id="next-btn" class="nav-arrow" aria-label="Próxima imagem"><img src="/media/image/elements/red_hands/red_hands_right.png" height="30"></button>
+    </div>
+  </dialog>
+
+  <dialog id="door-modal" class="modal-container">
+      <div class="modal-content door-confirmation-content">
+          <p>Sair do WHITESPACE?</p>
+          <div class="modal-actions">
+              <a href="/pages/html/homePage.html" id="confirm-door-btn" class="modal-button">Sim</a>
+              <button id="cancel-door-btn" class="modal-close" aria-label="Fechar galeria">&times;</button>
+          </div>
       </div>
   </dialog>
-  
-
 
   <main class="whitespace" id="whitespace">
-    <figure class="light-bulb">
+    <div class="light-bulb-container">
       <button id="theme-toggle" aria-label="Alternar tema">
-        <img id="bulb" src="/media/image/elements/single/bulb_black_theme.gif" alt="Interruptor de tema" draggable="false" />
+        <img id="bulb-img" src="/media/image/elements/single/bulb_black_theme.gif" alt="Lâmpada para trocar tema" draggable="false" />
       </button>
       <span id="bulb-text">Theme</span>
-    </figure>
+    </div>
 
-    <figure class="door">
-      <a href="/pages/html/homePage.html"><img id="door" src="/media/image/elements/single/door.png" alt="Porta" draggable="false" /></a> <!-- TODO: Adicionar um dialogozinho igual no OMORI pergutando se quer sair do whitespace mesmo -->
+    <figure class="door-container">
+      <a href="/pages/html/homePage.html" id="door-link" aria-label="Entrar na porta"><img class="invert-on-dark" src="/media/image/elements/single/door.png" alt="Porta" draggable="false" /></a>
     </figure>
 
     <section class="carpet">
-      <div class="mewo">
-        <img src="/media/image/elements/single/mewo.gif" id="mewo" alt="Mewo" style="cursor: pointer;" draggable="false" onclick="playMewo()" />
-        <audio id="mewoMeow">
+      <div class="mewo-container">
+        <img id="mewo-img" class="interactive-item invert-on-dark" src="/media/image/elements/single/mewo.gif" alt="Mewo, o gato" draggable="false" />
+        <audio id="mewo-audio">
           <source src="/media/audio/SFX/mewo.mp3" type="audio/mpeg">
         </audio>
-
       </div>
-      <div class="top-incarpet">
-        <figure id="laptop">
-          <img src="/media/image/elements/single/omori_whitespace_computer.gif" draggable="false" alt="Laptop">
-        </figure>    
-            
-        <figure id="scketchbook">
-          <img src="/media/image/elements/single/whitespace_scketchbook.png "  draggable="false" alt="Scketchbook">
-       </figure>
 
-       <figure id="tissue-box">
-          <img src="/media/image/elements/single/whitespace_tissue_box.png" draggable="false" alt="Tissue Box">
+      <div class="top-carpet-items">
+        <figure class="carpet-item">
+          <img class="invert-on-dark" src="/media/image/elements/single/omori_whitespace_computer.gif" draggable="false" alt="Laptop">
+        </figure>
+            
+        <button id="sketchbook-btn" class="carpet-item interactive-item">
+          <img class="invert-on-dark" src="/media/image/elements/single/whitespace_scketchbook.png" draggable="false" alt="Sketchbook">
+        </button>
+
+        <figure class="carpet-item">
+          <img class="invert-on-dark" src="/media/image/elements/single/whitespace_tissue_box.png" draggable="false" alt="Caixa de lenços">
         </figure>
       </div>
     </section>
-    <section class="images" style="display: none;">
-        <div class="images-content">
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Cover.webp" 
-                  alt="sketchbook-1" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_1-2.webp" 
-                  alt="sketchbook-1-2" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_3-4.webp" 
-                  alt="sketchbook-3-4" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_5-6.webp" 
-                  alt="sketchbook-5-6" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_7-8.webp" 
-                  alt="sketchbook-7-8" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_9-10.webp" 
-                  alt="sketchbook-9-10" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_11-12.webp" 
-                  alt="sketchbook-11-12" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_13-14.webp" 
-                  alt="sketchbook-13-14" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_15-16.webp" 
-                  alt="sketchbook-15-16" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_17-18.webp" 
-                  alt="sketchbook-17-18" 
-                  draggable="false"
-              />
-            </figure>
-            <figure>
-              <img 
-                  class="gallery-image"
-                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Cover.webp" 
-                  alt="sketchbook-final" 
-                  draggable="false"
-              />
-            </figure>
-            </div>
-      </section>
   </main>
 
 </body>

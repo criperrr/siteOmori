@@ -1,65 +1,66 @@
+/* --- FONTES E ESTILOS GERAIS --- */
 @font-face {
   font-family: "Omori-Font";
   src: url('/media/fonts/OMORI_GAME3.ttf');
+}
+
+:root {
+  --white: #ffffff;
+  --dark: #000000;
+  --modal-backdrop-color: rgba(0, 0, 0, 0.8);
+  --transition-fast: 0.1s ease;
+  --transition-medium: 0.3s ease;
 }
 
 html {
   height: 100%;
 }
 
-
-:root {
-  --white: #ffffff;
-  --dark: #000000;
-}
-
 body {
-  font-family: "Omori-Font";
+  font-family: "Omori-Font", sans-serif;
   font-size: 1.5rem;
   margin: 0;
   min-height: 100dvh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden; /* Previne scroll horizontal indesejado */
   user-select: none;
-  color: var(--dark);
   background-color: var(--white);
+  color: var(--dark);
+  transition: background-color var(--transition-medium), color var(--transition-medium);
 }
 
+/* --- TEMA ESCURO --- */
 body[data-theme='dark'] {
   --white: #000000;
   --dark: #ffffff;
 }
 
-/* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  border-radius: 0 0 10px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+body[data-theme='dark'] .invert-on-dark {
+  filter: invert(1);
 }
 
-.menu-button {
-  background: none;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  padding: 0.25rem 0.5rem;
-  font-size: 1.8rem;
+/* --- LAYOUT PRINCIPAL (WHITESPACE) --- */
+main.whitespace {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  padding: 3vh 1rem; /* Adiciona padding lateral para telas pequenas */
+  gap: 3vh;
+}
+
+.interactive-item {
   cursor: pointer;
 }
 
-/* LIGHT BULB SECTION */
-.light-bulb {
+/* --- LÂMPADA (TEMA) --- */
+.light-bulb-container {
   position: absolute;
-  top: 0px;
-  margin: 0;
-  padding: 0;
-  right: 40px;
+  top: 10px;
+  right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,149 +71,113 @@ body[data-theme='dark'] {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
-#bulb {
-  filter: invert();
+#bulb-img {
+  filter: invert(1);
   height: 22vmin;
   padding-left: 15px;
   width: auto;
-  margin: 0;
-  transition: all 0.3s ease;
+  transition: all var(--transition-medium);
+}
+
+body[data-theme='dark'] #bulb-img {
+  filter: drop-shadow(0px 0px 100px var(--dark));
 }
 
 #bulb-text {
   font-size: 6vmin;
   color: var(--dark);
-  transition: all 0.3s ease;
+  transition: color var(--transition-medium);
 }
 
-/* MAIN LAYOUT */
-main.whitespace {
-  box-sizing: border-box;
-  width: 100%;
-  flex-grow: 1; 
-  padding-bottom: 3vh; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
-  background-color: var(--white);
-  transition: background-color 0.1s ease;
-  gap: 3vh;
-}
-
-/* CARPET */
-.carpet {
-  box-sizing: border-box;
-  margin-bottom: 0;
-  border: 4px solid var(--dark);
-  width: 90%;
-  box-shadow: 0px 0px 5px 1px var(--dark);
-  max-width: 600px;
-  aspect-ratio: 4 / 3;
-  min-width: 200;
-  padding-left: 15px;
-  display: flex;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-/* DOOR */
-.door img {
-  filter: invert(); 
+/* --- PORTA --- */
+.door-container img {
   height: 20vmin;
   min-height: 150px;
   cursor: pointer;
-  margin-bottom: 0;
-  transition: all 0.1s ease;
+  transition: all var(--transition-fast);
 }
 
-/* MEWO */
-.mewo img {
-  position: absolute;
-  bottom: 0;
-  height: 11vmin;
-  min-height: 40px;
-  transition: all 0.1s ease;
-}
-
-/* TOP CARPET ITEMS */
-.top-incarpet{
-  position: relative;
+/* --- TAPETE E ITENS --- */
+.carpet {
+  box-sizing: border-box;
+  border: 4px solid var(--dark);
+  width: 90%;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
   display: flex;
-  box-sizing: border-box ;
-  flex-direction:row-reverse;
-  height: fit-content;
-  flex: 1;
-  margin-right: 15%;
+  position: relative;
+  box-shadow: 0 0 5px 1px var(--dark);
+  transition: all var(--transition-medium);
 }
-/* LAPTOP */
-#laptop img,
-#scketchbook img,
-#tissue-box img {
-  position: absolute;
-  height: 13vmin;
-  min-height: 10vmin;
-  transition: all 0.1s ease;
-}
-#scketchbook img{
-  cursor: pointer;
-}
-/* --- Estilos do Modal --- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+
+.top-carpet-items {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
-  display: none;
-  justify-content: center;
+  height: 30%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   align-items: center;
-  z-index: 10000;
+  gap: 3%;
+  box-sizing: border-box;
 }
 
-/* Classe para mostrar o modal via JS */
-.modal-overlay.visible {
-  display: flex;
-}
-
-.modal-content.gallery-modal {
-  background-color: rgba(0, 0, 0, 0);
-  color: var(--primary-text);
-  padding: 1rem;
-  border-radius: 15px;
-  width: 95vw;
-  max-width: 1000px;
-  max-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+.carpet-item {
   position: relative;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  transition: transform 0.2s ease;
 }
 
+.carpet-item img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
 
+#sketchbook-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.interactive-item:hover {
+  transform: scale(1.1);
+}
+
+/* --- MEWO --- */
+.mewo-container img {
+  position: absolute;
+  bottom: 10px;
+  left: 5%;  height: 11vmin;
+  min-height: 40px;
+  transition: all var(--transition-fast);
+}
+
+/* --- ESTILOS DE MODAL (GERAL) --- */
+.modal-container {
+  border: none;
+  border-radius: 15px;
+  padding: 0;
+  background-color: transparent;
+  max-width: 95vw;
+}
+
+.modal-container::backdrop {
+  background-color: var(--modal-backdrop-color);
+  backdrop-filter: blur(5px);
+}
 
 .modal-content {
-  background-color: var(--primary-bg);
-  color: var(--primary-text);
-  padding: 2rem 3rem;
-  backdrop-filter: blur(12px) opacity(0.5);
-  -webkit-backdrop-filter: blur(12px) opacity(0.5);
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  background-color: var(--white);
-  color: var(--primary-text);
-  border-radius: 15px;
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
+  padding: 2rem;
   position: relative;
+  background-color: var(--white);
+  color: var(--dark);
+  border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 .modal-close {
@@ -224,120 +189,24 @@ main.whitespace {
   font-size: 2.5rem;
   color: red;
   cursor: pointer;
-}
-
-.modal-content p {
-  font-size: 1.8rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.modal-button {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background-color: var(--dark);
-  color: var(--white);
-  border-radius: 10px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-size: 1.5rem;
-}
-
-.modal-button:hover {
-  background-color: var(--link-hover);
-  transform: scale(1.05);
-  text-decoration: none;
-}
-
-.modal-button:active {
-  transform: scale(0.99);
-}
-
-
-.images {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 3rem 0;
-  width: 100%;
-}
-
-.images-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  width: 100%;
-}
-
-.images-content figure {
-  width: 100%;
-  max-width: 300px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.images-content figure:hover {
-  transform: scale(1.05);
-}
-
-.images-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: var(--white-30);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: 200ms;
-  object-fit: cover;
-}
-
-.images-content figcaption {
-  margin-top: 1rem;
-  font-size: 2rem;
-  word-wrap: break-word;
-}
-
-.images-content img:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 0px 10px var(--dark-50);
-}
-
-.images-content img:active {
-  transform: scale(0.99);
-}
-
-/* SKETCHBOOK MODAL */
-.omori-sketchbook{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 20;
 }
 
-.gallery-modal {
+/* --- MODAL DA GALERIA --- */
+.gallery-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 1rem;
 }
 
-#modalImage {
-  max-width: 90%;
+#modal-image {
+  max-width: 90vw; /* Ajustado para ser relativo à viewport */
   max-height: 80vh;
   object-fit: contain;
-  margin: 0 auto;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-medium);
 }
 
 .nav-arrow {
@@ -348,107 +217,98 @@ main.whitespace {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  user-select: none;
+  transition: transform 0.2s ease;
+  z-index: 10;
 }
 
-#prevBtn {
-  left: -60px;
+.nav-arrow img { padding: 0; margin: 0; }
+.nav-arrow:hover { transform: translateY(-50%) scale(1.1); }
+#prev-btn { left: -35px; }
+#next-btn { right: -35px; }
+
+
+/* --- MODAL DE CONFIRMAÇÃO DA PORTA --- */
+.door-confirmation-content {
+  text-align: center;
+}
+.door-confirmation-content p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.modal-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--dark);
+  color: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--dark);
+  text-decoration: none;
+  transition: background-color var(--transition-medium), color var(--transition-medium), transform 0.2s ease;
+  font-size: 1.5rem;
+  font-family: "Omori-Font";
+}
+.modal-button:hover {
+  background-color: var(--white);
+  color: var(--dark);
+  transform: scale(1.05);
 }
 
-#nextBtn {
-  right: -60px;
-}
-.nav-arrow{
-  transition: all 0.5s ease;
-  color: red;
-}
-.nav-arrow img {
-  padding: 0;
-  margin: 0;
-}
-.nav-arrow:hover {
-  transform: translateY(-50%) scale(1.1);
-}
+/*
+   Media queryies
+*/
+@media (max-width: 650px) {
 
-
-/* MEDIA QUERIES */
-@media (max-width: 600px) {
-  .modal-content.gallery-modal {
-    width: 95vw;
-    max-width: none;
-    padding: 1rem;
-    border-radius: 10px;
-  }
-
-  #modalImage {
-    max-width: 100%;
-    max-height: 60vh;
-    margin: 0.5rem 0;
-  }
-
-  .nav-arrow {
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0.5rem;
-  }
-
-  #prevBtn {
-    left: -40px; 
-  }
-
-  #nextBtn {
-    right: -40px;
-  }
-
-  .nav-arrow img {
-    height: 20px;
-  }
-
-  .modal-close {
-    font-size: 2rem;
-    top: 5px;
-    right: 10px;
-  }
-  .light-bulb {
-    position: absolute;
-    top: 0;
+  /* Bulb */
+  .light-bulb-container {
     left: 50%;
-    margin: 0;
-    right: auto;
     transform: translateX(-50%);
-    align-items: center;
+    right: auto;
+    top: 5px;
+  }
+  #bulb-img { height: 30vmin; }
+  #bulb-text { font-size: 8vmin; margin-top: 0; }
+  
+  /* Porta */
+  .door-container img {
+    min-height: 120px;
   }
 
-  #laptop img {
-    height: 20vmin;
-  }
-  #tissue-box img {
-    height: 20vmin;
+  /* Tapete */
+  .carpet {
+    margin-bottom: 2rem; 
   }
 
-  #scketchbook img {
-    height: 20vmin;
-  }
-  .top-incarpet{
-    margin-right: 100px;
-  }
-  #bulb {
-    height: 30vmin;
-    position: static;
-    transform: none;
-    display: block;
-    margin: 0 auto;
-  }
-
-  #bulb-text {
-    font-size: 9vmin;
-    position: static;
-    margin-top: 10px;
-    text-align: center;
+  /* ITENS DO TAPETE */
+  .top-carpet-items {
     width: 100%;
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .carpet-item {
+    height: 16vmin; 
+    max-height: 70px; 
   }
 
-  .mewo img {
-    height: 15vmin;
+  /* MEWO */
+  .mewo-container img {
+    height: 14vmin;
+    max-height: 60px;
+    bottom: 5px;
+    left: 30%;
+    transform: translateX(-100%); 
   }
+
+  #modal-image { max-height: 60vh; }
+  #prev-btn { left: 5px; } 
+  #next-btn { right: 5px; }
+  .nav-arrow img { height: 25px; }
+  .modal-close { font-size: 2rem; top: 5px; right: 10px; }
 }
