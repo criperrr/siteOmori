@@ -6,7 +6,7 @@
     <title>FARAWAY TOWN</title>
     <link rel="icon" href="/media/image/omori_sprite_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/pages/styles/faraway.css">
-    <script defer src="/pages/scripts/homePage.js"></script>
+    <script defer src="/pages/scripts/headsPace.js"></script>
 </head>
 <body>
     <header id="header">
@@ -16,14 +16,120 @@
         </div>
     </header>
 
-    <nav>
-        <a id="goBack" href="/pages/html/homePage.html">Voltar à página principal</a>
-    </nav>
-
-    <main>
-        <section class="intro">
+    <main id="main-content">
+        <section class="fade-in-element">
             <h2 class="omori-font-text">WELCOME TO FARAWAY TOWN</h2>
         </section>
+        <section class="images fade-in-element">
+            <div class="images-content">
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_01.png" 
+                    alt="headspace-album" 
+                    data-description="'MARI está ensinando todo mundo a fazer coroas de flores! Aqui estão SUNNY e KEL segurando o exemplo que ela fez. É perfeito, não é? Se ela pelo menos pensasse assim...'"
+                    draggable="false"
+                />
+                </figure>
+
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_02.png" 
+                    alt="real-album" 
+                    data-description="'SUNNY e KEL desistiram e saíram correndo, mas eu e a AUBREY pegamos o jeito rapidinho! Todos acham que a coroa de flores combina comigo. Talvez só uma flor seja o suficiente.'"
+                    draggable="false"
+                />
+                </figure>
+
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_03.png" 
+                    alt="real-album" 
+                    data-description="'HERO ainda tá fazendo a coroa de flores dele. Tá levando um tempinho, mas ele tá quase lá. Tem que admirar a persistência!'"
+                    draggable="false"
+                />
+                </figure>
+
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_04.png" 
+                    alt="real-album" 
+                    data-description="'É o primeiro dia das férias de verão, então todo mundo quis comemorar indo pra praia! MELANCIA é a favorita da AUBREY.'"
+                    draggable="false"
+                />
+                </figure>
+
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_05.png" 
+                    alt="real-album" 
+                    data-description="'KEL se refrescando com um ORANGE JOE geladinho! Melhor eu não chegar muito perto ou ele vai acabar molhando minha câmera. O KEL é famoso por derramar as bebidas dele.'"
+                    draggable="false"
+                />
+                </figure>
+
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_06.png" 
+                    alt="real-album" 
+                    data-description="'Eu mostrando pro SUNNY um livro que tô lendo. A MARI roubou minha câmera e tirou essa foto quando eu nem tava prestando atenção. Eu devia cuidar melhor das minhas coisas.'"
+                    draggable="false"
+                />
+                </figure>
+
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_07.png" 
+                    alt="real-album" 
+                    data-description="'KEL ainda tava meio amargo por ter perdido no braço de ferro pro HERO ontem à noite, então o HERO decidiu se inclinar pra dar um beijinho! KEL tá com uma cara de irritado. Ah, o amor entre irmãos…'"
+                    draggable="false"
+                />
+                </figure>
+
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_08.png" 
+                    alt="real-album" 
+                    data-description="'Já é o último dia de março! A gente tá fazendo um piquenique com a MARI no nosso lugar secreto no lago. A MARI quis tirar foto de todo mundo! Diiiga xis!'"
+                    draggable="false"
+                />
+                </figure>
+
+                <figure>
+                <img 
+                    class="gallery-image"
+                    src="/media/image/Album_faraway/FA_ALBUM_09.png" 
+                    alt="real-album" 
+                    data-description="'Todos os nossos pés formando um círculo! Consegue adivinhar de quem é cada sapato?'"
+                    draggable="false"
+                />
+                </figure>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <a id="goBack" href="/pages/html/homePage.html">Voltar à página principal</a>
+        <p id="btInfo">oioio</p>
+    </footer>
+
+    <dialog id="imageModal" class="modal-overlay">
+        <div class="modal-content gallery-modal">
+            <button id="closeModal" class="modal-close">&times;</button>
+            <button id="prevBtn" class="nav-arrow">&#8592;</button>
+            <img id="modalImage" src="" alt="Imagem ampliada" draggable="false" />
+            <button id="nextBtn" class="nav-arrow">&#8594;</button>
+            <p id="modalDescription"></p>
+            <button id="modalLink" class="modal-button omori-font-text" draggable="false">OK</button>
+        </div>
+    </dialog>
+
 </body>
 </html>

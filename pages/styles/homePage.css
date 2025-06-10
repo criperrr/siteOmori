@@ -24,7 +24,7 @@ html {
   --primary-text: #000000;
   --link-hover: rgba(0, 0, 0, 0.7);
   --header-bg-img: url("/media/image/background/dark_whitespace_backdrop.jpg");
-  --body-bg-img: url("/media/image/background/headspace_purple_backdrop.png");
+  --body-bg-img: url("/media/image/background/white_whitespace_backdrop.png");
   --header-text-shadow: 2px 2px 20px #ffffff;
 }
 
@@ -39,6 +39,7 @@ body[data-theme="dark"] {
   --dark: #ffffff;
   --primary-bg: #1a1a1a;
   --primary-text: #ffffff;
+  --body-bg-img: url("/media/image/background/dark_whitespace_backdrop.jpg");
   --link-hover: rgba(255, 255, 255, 0.8);
   --header-text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
 }

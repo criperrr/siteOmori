@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OMORI</title>
-  <link rel="icon" href="media/image/omori_sprite_icon.png" type="image/x-icon" />
+  <link rel="icon" href="media/image/page-icons/index.png" type="image/x-icon" />
   <link rel="stylesheet" href="/pages/styles/style.css"/>
   <script defer src="pages/scripts/script.js"></script>
 </head>
 <body>
-  
-  <dialog id="omori-sketchbook">
-    <div class="modal-content">
-      <div class="slider-container">
-        <button class="slider-btn" id="prev-btn" aria-label="Imagem anterior">&#8592;</button>
-        <img id="slider-image" src="/media/image/elements/single/whitespace_scketchbook.png" alt="Imagem do Sketchbook" />
-        <button class="slider-btn" id="next-btn" aria-label="Próxima imagem">&#8594;</button>
+
+  <dialog id="imageModal" class="modal-overlay">
+      <div class="modal-content gallery-modal">
+          <button id="closeModal" class="modal-close">&times;</button>
+          <button id="prevBtn" class="nav-arrow"><img src="/media/image/elements/red_hands/red_hands_left.png" height="30px"></button>
+          <img id="modalImage" src="" alt="Imagem ampliada" draggable="false" />
+          <button id="nextBtn" class="nav-arrow"><img src="/media/image/elements/red_hands/red_hands_right.png" height="30px"></button>
       </div>
-    </div>
   </dialog>
+  
 
 
   <main class="whitespace" id="whitespace">
@@ -47,7 +47,7 @@
         </figure>    
             
         <figure id="scketchbook">
-          <img src="/media/image/elements/single/whitespace_scketchbook.png " draggable="false" alt="Scketchbook">
+          <img src="/media/image/elements/single/whitespace_scketchbook.png "  draggable="false" alt="Scketchbook">
        </figure>
 
        <figure id="tissue-box">
@@ -55,6 +55,98 @@
         </figure>
       </div>
     </section>
+    <section class="images" style="display: none;">
+        <div class="images-content">
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Cover.webp" 
+                  alt="sketchbook-1" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_1-2.webp" 
+                  alt="sketchbook-1-2" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_3-4.webp" 
+                  alt="sketchbook-3-4" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_5-6.webp" 
+                  alt="sketchbook-5-6" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_7-8.webp" 
+                  alt="sketchbook-7-8" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_9-10.webp" 
+                  alt="sketchbook-9-10" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_11-12.webp" 
+                  alt="sketchbook-11-12" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_13-14.webp" 
+                  alt="sketchbook-13-14" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_15-16.webp" 
+                  alt="sketchbook-15-16" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_17-18.webp" 
+                  alt="sketchbook-17-18" 
+                  draggable="false"
+              />
+            </figure>
+            <figure>
+              <img 
+                  class="gallery-image"
+                  src="/media/image/elements/sketchbook/Whitespace_Sketchbook_Cover.webp" 
+                  alt="sketchbook-final" 
+                  draggable="false"
+              />
+            </figure>
+            </div>
+      </section>
   </main>
 
 </body>

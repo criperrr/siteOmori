@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`Antes: Current index: ${currentIndex}\n  galleryData.length: ${galleryData.length}`);
             currentIndex = currentIndex === galleryData.length-1? currentIndex: (currentIndex + 1) % galleryData.length;
             console.log(`Antes: Current index: ${currentIndex}\n  galleryData.length: ${galleryData.length}`);
-            
             updateModal();
         });
     }

@@ -7,30 +7,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
 
   // Carrega o tema salvo ou usa 'light' como padrão
-  const theme = sessionStorage.getItem('theme') || 'light';
-  const isDark = theme === 'dark';
 
   // Função para aplicar o tema visualmente
-  function applyTheme() {
+  function applyTheme(theme) {
+    const isDark = theme === 'dark';
     body.setAttribute('data-theme', theme);
     if (backgroundLayer) {
-      // Aplica um filtro de brilho na imagem de fundo se o tema for escuro
       backgroundLayer.style.filter = isDark ? 'invert() brightness(75%)' : '';
     }
   }
 
-  applyTheme(); // Aplica o tema assim que a página carrega
+  const theme = sessionStorage.getItem('theme') || 'light';
 
-  // Adiciona os eventos de mouseover/mouseout no header, se ele existir
-  if (header && backgroundLayer) {
-    const filterStyle = isDark ? 'invert() brightness(75%)' : '';
-    header.addEventListener('mouseover', () => {
-      backgroundLayer.style.filter = filterStyle;
-    });
-    header.addEventListener('mouseout', () => {
-      backgroundLayer.style.filter = filterStyle;
-    });
-  }
+
+  applyTheme(theme); // Aplica o tema assim que a página carrega
+
 
 
   // Modais
