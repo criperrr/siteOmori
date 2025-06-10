@@ -218,9 +218,6 @@ nav ul li a:hover {
   scale: 1.01;
 }
 
-
-
-
 .images {
   display: flex;
   flex-direction: column;
@@ -276,6 +273,16 @@ nav ul li a:hover {
 
 .images-content img:active {
   transform: scale(0.99);
+}
+
+.gallery-image {
+    overflow: visible;
+    width: 320px;
+    max-height: 380px;
+}
+
+#main-content #gallery {
+  margin-bottom: 200px;
 }
 
 /* --- Estilos do Modal --- */

@@ -278,6 +278,10 @@ nav ul li a:hover {
   transform: scale(0.99);
 }
 
+#main-content #gallery {
+  margin-bottom: 200px;
+}
+
 /* --- Estilos do Modal --- */
 .modal-overlay {
   position: fixed;
