@@ -7,7 +7,7 @@
   <title>OMORI</title>
   <link rel="icon" href="/media/image/omori_sprite_icon.png" type="image/x-icon" />
   <link rel="stylesheet" href="/pages/styles/homePage.css" />
-  <script defer src="/pages/scripts/headsPace.js"></script>
+  <script defer src="/pages/scripts/homePage.js"></script>
 </head>
 
 <body>
@@ -18,92 +18,74 @@
     </div>
   </header>
 
-
-
   <nav aria-label="Navegação principal" class="fade-in-element">
     <ul>
-      <li><a href="#main-title">O que é OMORI?</a></li>
+      <li><a href="#about-omori">O que é OMORI?</a></li>
       <li><a href="#galeria">Galeria</a></li>
-      <li><a href="#content-1">???</a></li>
+      <li><a href="#blackspace-section">???</a></li>
     </ul>
   </nav>
 
   <main id="main-content">
-    <section class="content fade-in-element" aria-labelledby="main-title">
+    <section id="about-omori" class="content-card fade-in-element" aria-labelledby="main-title">
       <h2 id="main-title">O que é OMORI?</h2>
       <p>
-        OMORI é um jogo RPG de terror psicológico desenvolvido por OMOCAT. Lançado inicialmente como um projeto de
-        crowdfunding, o jogo combina elementos de exploração, combate por turnos e narrativa envolvente. Os jogadores
-        assumem o papel de OMORI, um personagem que vive em um mundo onírico e surreal, enquanto exploram temas de
-        amizade, perda e auto-descoberta.
+        OMORI é um jogo RPG de terror psicológico desenvolvido por OMOCAT. Lançado inicialmente como um projeto de crowdfunding, o jogo combina elementos de exploração, combate por turnos e narrativa envolvente. Os jogadores assumem o papel de OMORI, um personagem que vive em um mundo onírico e surreal, enquanto exploram temas de amizade, perda e auto-descoberta.
       </p>
-      <br>
       <p>
-        Você joga como OMORI, inicialmente, um garoto que vive no mund dos sonhos, chamado HEADSPACE.
-        Ao longo do jogo, você encontrará seus amigos, como AUBREY, KEL e HERO, e enfrentará desafios emocionais e
-        psicológicos.
+        Você joga como OMORI, inicialmente, um garoto que vive no mundo dos sonhos, chamado HEADSPACE. Ao longo do jogo, você encontrará seus amigos, como AUBREY, KEL e HERO, e enfrentará desafios emocionais e psicológicos.
       </p>
-      <br>
-
       <p>
-        Posteriormente, passa a jogar como SUNNY, um garoto no mundo real.
-        SUNNY se trancou no seu quarto por quatro anos após a morte de sua irmã, MARI.
-        Na primeira vez que você ACORDA, você é convidado por KEL (um dos seus amigos de) a sair de casa.
+        Posteriormente, passa a jogar como SUNNY, um garoto no mundo real. SUNNY se trancou no seu quarto por quatro anos após a morte de sua irmã, MARI. Na primeira vez que você ACORDA, você é convidado por KEL (um dos seus amigos) a sair de casa.
       </p>
-      <br>
       <p>
-        BASIL é um dos seus amigos. Ele gosta muito de plantas, flores e fotografia.
-        Ele tem um álbum de fotos que tirou de seus amigos.
+        BASIL é um dos seus amigos. Ele gosta muito de plantas, flores e fotografia. Ele tem um álbum de fotos que tirou de seus amigos.
       </p>
-      <br>
       <p>
-        Abaixo, estão as fotos que estão no mundo do sonhos (memórias de infância do SUNNY) e no mundo real, ainda
-        existente.
+        Abaixo, estão as fotos que estão no mundo dos sonhos (memórias de infância do SUNNY) e no mundo real, ainda existente.
       </p>
     </section>
 
-    <section class="pages fade-in-element">
-      <h1 id="galeria" style="font-size: 4rem;">Galeria</h1>
-
+    <section class="pages fade-in-element content-card" aria-labelledby="gallery-title">
+      <h2 id="gallery-title" style="font-size: 4rem;">Galeria</h2>
       <div class="pages-content">
         <figure>
-          <img class="gallery-image" src="/media/image/elements/single/Album_piquinique.webp" alt="headspace-album"
-            data-description="Depois de comer, OMORI e seus amigos caem no sono, com exceção do HERO e MARI."
-            data-link="headspace.html" draggable="false" />
+          <img class="gallery-image" src="/media/image/elements/single/Album_piquinique.webp" alt="Álbum de fotos no Headspace" data-description="Depois de comer, OMORI e seus amigos caem no sono, com exceção de HERO e MARI." data-link="headspace.html" draggable="false" />
           <figcaption>HEADSPACE</figcaption>
         </figure>
-
         <figure>
-          <img class="gallery-image" src="/media/image/elements/single/Album_real.webp" alt="real-album"
-            data-description="SUNNY e seus amigos num piquinique arranjando por sua irmã, MARI."
-            data-link="faraway.html" draggable="false" />
+          <img class="gallery-image" src="/media/image/elements/single/Album_real.webp" alt="Álbum de fotos no Mundo Real" data-description="SUNNY e seus amigos num piquenique arranjado por sua irmã, MARI." data-link="faraway.html" draggable="false" />
           <figcaption>MUNDO REAL</figcaption>
         </figure>
       </div>
     </section>
+
+    <div id="blackspace-wrapper">
+      <div id="blackspace-content">
+        <section id="blackspace-section" class="content-card fade-in-element">
+          <h2 class="bs-title">Sunny...</h2>
+        </section>
+        <section class="content-card fade-in-element">
+          <h2 class="bs-title">Aconteça o que acontecer...</h2>
+        </section>
+        <section class="content-card fade-in-element">
+          <h2 class="bs-title">Eu sempre estarei ao seu lado.</h2>
+        </section>
+        <figure>
+          <img class="gallery-image" src="/media/image/elements/single/blackspace_hole.png" alt="Buraco para o Blackspace" data-description="Você NÃO pode se esconder de si mesmo." data-link="blackspace.html" draggable="false" />
+        </figure>
+      </div>
+    </div>
   </main>
-  <div id="blackspace-content">
-    <section class="fade-in-element" id="content-1">
-      <h1 class="bs-title">Sunny...</h1>
-    </section>
-    <section class="fade-in-element" id="content-2">
-      <h1 class="bs-title">Aconteça o que acontecer...</h1>
-    </section>
-    <section class="fade-in-element" id="content-3">
-      <h1 class="bs-title">Eu sempre estarei ao seu lado.</h1>
-    </section>
-    <figure>
-      <img class="gallery-image" src="/media/image/elements/single/blackspace_hole.png" alt="Buraco para o Blackspace"
-        data-description="Você NÃO pode se esconder de si mesmo." data-link="blackspace.html" draggable="false" />
-    </figure>
-  </div>
 
   <footer>
     <div class="footer-items">
       <a id="icon-goBack" href="/index.html" draggable="false">Voltar</a>
       <a id="text-goBack" href="/index.html" draggable="false">Voltar ao WHITESPACE</a>
       <div class="footer-mention">
-        <a href="https://github.com/henriqclaro" draggable="false">@hrkms</a> & <a href="https://github.com/criperrr" draggable="false">@criperrr</a>
+        <a href="https://github.com/henriqclaro" draggable="false">@hrkms</a>
+        <span>&</span>
+        <a href="https://github.com/criperrr" draggable="false">@criperrr</a>
       </div>
     </div>
   </footer>
@@ -115,7 +97,6 @@
       <a id="modalLink" href="#" class="modal-button" draggable="false">Acessar álbum</a>
     </div>
   </dialog>
-
 
   <script src="/pages/scripts/homePage.js"></script>
 </body>

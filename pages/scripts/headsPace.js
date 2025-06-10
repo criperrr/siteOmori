@@ -21,16 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   applyTheme(); // Aplica o tema assim que a página carrega
 
-  // Adiciona os eventos de mouseover/mouseout no header, se ele existir
-  if (header && backgroundLayer) {
-    const filterStyle = isDark ? 'invert() brightness(75%)' : '';
-    header.addEventListener('mouseover', () => {
-      backgroundLayer.style.filter = filterStyle;
-    });
-    header.addEventListener('mouseout', () => {
-      backgroundLayer.style.filter = filterStyle;
-    });
-  }
 
   // Script para galeria de fotos.
 

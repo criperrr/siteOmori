@@ -1,116 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-BR"> 
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLACKSPACE</title>
     <link rel="icon" href="/media/image/omori_sprite_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/pages/styles/blackspace.css">
-    <script defer src="/pages/scripts/headsPace.js"></script>
+    <script defer src="/pages/scripts/blackspace.js"></script>
 </head>
-<body>
-    <header id="header">
+<body data-theme="dark"> <header id="header">
         <div id="background-layer"></div>
         <div id="content">
             <h1>BLACKSPACE</h1>
         </div>
     </header>
 
-
-
     <main>
-        <section class="intro">
-            <h2 class="omori-font-text">WELCOME TO BLACKSPACE</h2>
+        <section class="intro fade-in-element">
+            <h2 class="omori-font-text">WELCOME</h2>
+            <p>Siga os números. A memória está esperando.</p>
         </section>
-        <section class="images fade-in-element" id="gallery">
-            <div class="images-content">
-                <figure>
-                <img 
-                    class="gallery-image"
-                    src="/media/image/Album_blackspace/Dorothi.gif" 
-                    alt="headspace-album" 
-                    data-description="EU NÃO ESTOU COM CABEÇA PARA FAZER MAIS NADA SÃO 01:11 DA MANHÃ E NEM FIZ ED FISICA AINDA"
-                    draggable="false"
-                />
-                </figure>
-                <figure>
-                <img 
-                    class="gallery-image"
-                    src="/media/image/Album_blackspace/Cindi.gif" 
-                    alt="headspace-album" 
-                    data-description=""
-                    draggable="false"
-                />
-                </figure>
-                <figure>
-                <img 
-                    class="gallery-image"
-                    src="/media/image/Album_blackspace/Lilli.gif" 
-                    alt="headspace-album" 
-                    data-description=""
-                    draggable="false"
-                />
-                </figure>
-                <figure>
-                <img 
-                    class="gallery-image"
-                    src="/media/image/Album_blackspace/Merci.gif" 
-                    alt="headspace-album" 
-                    data-description=""
-                    draggable="false"
-                />
-                </figure>
-                <figure>
-                <img 
-                    class="gallery-image"
-                    src="/media/image/Album_blackspace/Nanci.gif" 
-                    alt="headspace-album" 
-                    data-description=""
-                    draggable="false"
-                />
-                </figure>
-                <figure>
-                <img 
-                    class="gallery-image"
-                    src="/media/image/Album_blackspace/Salli.gif" 
-                    alt="headspace-album" 
-                    data-description=""
-                    draggable="false"
-                />
-                </figure>
-                <figure>
-                <img 
-                    class="gallery-image"
-                    src="/media/image/Album_blackspace/SOMETHING.png" 
-                    alt="headspace-album" 
-                    data-description=""
-                    draggable="false"
-                />
-                </figure>
-            </div>
-        </section>
+
+        <div class="circular-gallery fade-in-element">
+
+            <figure class="gallery-item" style="--n: 1;">
+                <img class="gallery-image" src="../../media/image/Album_blackspace/Lilli.gif" alt="A figura de Lilli do vale, com uma flor" data-description="O presente era para ser perfeito. As cordas afinadas, a música impecável. Mas às vezes... uma nota errada estraga toda a canção." draggable="false" />
+                <figcaption>1. Lilli</figcaption>
+            </figure>
+            <figure class="gallery-item" style="--n: 2;">
+                <img class="gallery-image" src="../../media/image/Album_blackspace/Nanci.gif" alt="A figura de Nanci, uma criatura com muitas pernas" data-description="Uma discussão boba, um empurrão sem força... Os degraus são traiçoeiros quando se perde o equilíbrio. Foi tão rápido." draggable="false" />
+                <figcaption>2. Nanci</figcaption>
+            </figure>
+            <figure class="gallery-item" style="--n: 3;">
+                <img class="gallery-image" src="../../media/image/Album_blackspace/Salli.gif" alt="A figura de Salli na casa da árvore" data-description="Ele só queria que a música parasse. A árvore lá fora parecia um bom lugar para o silêncio. Ele a ajudou a encontrar a paz." draggable="false" />
+                <figcaption>3. Salli</figcaption>
+            </figure>
+            <figure class="gallery-item" style="--n: 4;">
+                <img class="gallery-image" src="../../media/image/Album_blackspace/Cindi.gif" alt="A figura de Cindi queimando em uma casa" data-description="As fotos mentem. Elas mostram sorrisos que não existem mais. É melhor queimá-las, para que a verdade não machuque os outros." draggable="false" />
+                <figcaption>4. Cindi</figcaption>
+            </figure>
+            <figure class="gallery-item" style="--n: 5;">
+                <img class="gallery-image" src="../../media/image/Album_blackspace/Merci.gif" alt="A figura de Merci, cortada ao meio" data-description="Depois que tudo se quebrou, ele se dividiu em dois. Um que sonha e outro que dorme. É difícil ser uma pessoa só com tantas partes faltando." draggable="false" />
+                <figcaption>5. Merci</figcaption>
+            </figure>
+            <figure class="gallery-item" style="--n: 6;">
+                <img class="gallery-image" src="../../media/image/Album_blackspace/Dorothi.gif" alt="A figura distorcida de Dorothi flutuando na água" data-description="Ele se escondeu no fundo da própria mente, onde a água é escura e silenciosa. É mais fácil flutuar no esquecimento do que aprender a nadar." draggable="false" />
+                <figcaption>6. Dorothi</figcaption>
+            </figure>
+
+            <figure class="gallery-item center-item" style="--n: 7;">
+                <img class="gallery-image" src="../../media/image/Album_blackspace/SOMETHING.png" alt="A criatura conhecida como SOMETHING, uma manifestação de culpa." data-description="Eu não sou um monstro. Sou a verdade que você tenta esquecer. Sou o que você vê no espelho quando a luz se apaga." draggable="false" />
+                <figcaption>7. SOMETHING</figcaption>
+            </figure>
+        </div>
     </main>
 
     <footer>
-    <div class="footer-items">
-      <a id="icon-goBack" href="/pages/html/homePage.html" draggable="false">Voltar</a>
-      <a id="text-goBack" href="/pages/html/homePage.html" draggable="false">Voltar à página principal</a>
-      <div class="footer-mention">
-        <a href="https://github.com/henriqclaro" draggable="false">@hrkms</a> & <a href="https://github.com/criperrr" draggable="false">@criperrr</a>
-      </div>
-    </div>
+        <div class="footer-items">
+            <a id="icon-goBack" href="/pages/html/homePage.html" draggable="false">Voltar</a>
+            <a id="text-goBack" href="/pages/html/homePage.html" draggable="false">Voltar à página principal</a>
+            <div class="footer-mention">
+                <a href="https://github.com/henriqclaro" draggable="false">@hrkms</a>
+                <span>&</span>
+                <a href="https://github.com/criperrr" draggable="false">@criperrr</a>
+            </div>
+        </div>
     </footer>
 
     <dialog id="imageModal" class="modal-overlay">
         <div class="modal-content gallery-modal">
-            <button id="closeModal" class="modal-close">&times;</button>
-            <button id="prevBtn" class="nav-arrow">&#8592;</button>
-            <img id="modalImage" src="" alt="Imagem ampliada" draggable="false" />
-            <button id="nextBtn" class="nav-arrow">&#8594;</button>
+            <button id="closeModal" class="modal-close" aria-label="Fechar modal">&times;</button>
+            <p id="creatureName"></p> <div class="modal-image-container">
+                <button id="prevBtn" class="nav-arrow" aria-label="Imagem anterior">&#8592;</button>
+                <img id="modalImage" src="" alt="Imagem ampliada" draggable="false" />
+                <button id="nextBtn" class="nav-arrow" aria-label="Próxima imagem">&#8594;</button>
+            </div>
             <p id="modalDescription"></p>
             <button id="modalLink" class="modal-button omori-font-text" draggable="false">OK</button>
         </div>
     </dialog>
-
 </body>
 </html>

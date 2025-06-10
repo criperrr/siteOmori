@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_13-14.webp",
     "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_15-16.webp",
     "/media/image/elements/sketchbook/Whitespace_Sketchbook_Pages_17-18.webp",
-    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Cover.webp"
+    "/media/image/elements/sketchbook/Whitespace_Sketchbook_Back_Cover.webp"
   ];
   let currentImageIndex = 0;
 
