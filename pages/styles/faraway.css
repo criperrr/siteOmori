@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   height: 100%;
   width: 100%;
@@ -91,28 +92,35 @@ header {
   align-items: center;
   z-index: 9999;
   transition: 250ms;
+  user-select: none;
 }
 
-.footer-items a{
+.footer-items a {
   border-radius: 10px;
   color: var(--primary-text);
   margin: 0;
   padding: 0.5rem 1rem;
   backdrop-filter: blur(12px);
   background-color: var(--white-30);
-  border: 1px solid rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: all 0.1s;
 }
 
-#bt-info {
-    left: 20px;
-    bottom: 20px;
-    padding: 10px;
-    color: var(--primary-text);
-    backdrop-filter: blur(12px);
-    background-color: var(--white-30);
-    border: 1px solid rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    z-index: 9999;
+.footer-items a:hover {
+  font-size: 2.3rem;
+}
+
+.footer-items #icon-goBack {
+  display: none;
+}
+
+.footer-mention {
+  border-radius: 10px;
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+  background-color: var(--white-30);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
 }
 
 #background-layer {
@@ -181,7 +189,7 @@ nav ul li a:hover {
 }
 
 /* Estilos do Main */
-#main-content > section {
+#main-content>section {
   background-color: var(--white-30);
   backdrop-filter: blur(15px);
   padding: 2rem;
@@ -194,18 +202,18 @@ nav ul li a:hover {
   margin-bottom: 100px;
 }
 
-#main-content > section #main-title {
+#main-content>section #main-title {
   font-family: "Omori-Font";
   font-size: 5rem;
   font-weight: 500;
 }
 
-#main-content > section > figure {
+#main-content>section>figure {
   display: flex;
   flex-direction: column;
 }
 
-#main-content > section:hover {
+#main-content>section:hover {
   backdrop-filter: blur(20px);
   scale: 1.01;
 }
@@ -396,9 +404,11 @@ nav ul li a:hover {
 #nextBtn {
   right: -10px;
 }
-.nav-arrow{
+
+.nav-arrow {
   transition: all 0.5s ease;
 }
+
 .nav-arrow:hover {
   transform: translateY(-50%) scale(1.1);
 }
@@ -455,8 +465,28 @@ nav ul li a:hover {
   .pages-content img {
     height: auto;
   }
-  #content h1{
+
+  #content h1 {
     font-size: 3rem;
+  }
+
+  .footer-items {
+    font-size: 1.7rem;
+    width: 94%;
+  }
+
+  #text-goBack {
+    display: none;
+  }
+
+  .footer-items #icon-goBack {
+    display: block;
+  }
+
+  .footer-mention {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 

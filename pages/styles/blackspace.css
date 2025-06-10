@@ -1,217 +1,498 @@
 @import url(https://db.onlinewebfonts.com/c/41cdafd19e156a1f74759f9c88b878ff?family=Google+Sans+Text+Regular);
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
 }
 
 @font-face {
-    font-family: "Omori-Font";
-    src: url('/media/fonts/OMORI_GAME3.ttf');
+  font-family: "Omori-Font";
+  src: url("/media/fonts/OMORI_GAME3.ttf");
 }
 
 :root {
-    --white: #ffffff;
-    --white-30: rgba(255, 255, 255, 0.3);
-    --dark-50: rgba(0, 0, 0, 0.7);
-    --dark: #000000;
-    --primary-bg: #ffffff; 
-    --primary-text: #000000; 
-    --link-hover: rgba(0, 0, 0, 0.7);
-    --header-bg-img: url('/media/image/background/dark_whitespace_backdrop.jpg');
-    --body-bg-img: url('/media/image/background/blackspace_background.png');
-    --header-text-shadow: 2px 2px 20px #ffffff;
+  --white: #ffffff;
+  --white-30: rgba(255, 255, 255, 0.3);
+  --dark-50: rgba(0, 0, 0, 0.7);
+  --dark: #000000;
+  --primary-bg: #ffffff;
+  --primary-text: #000000;
+  --link-hover: rgba(0, 0, 0, 0.7);
+  --header-bg-img: url("/media/image/background/dark_whitespace_backdrop.jpg");
+  --body-bg-img: url("/media/image/background/blackspace_background.png");
+  --header-text-shadow: 2px 2px 20px #ffffff;
 }
 
-body[data-theme='dark'] {
-    --white: #000000;
-    --white-30: rgba(0, 0, 0, 0.7);
-    --dark-50: rgba(255, 255, 255, 0.8);
-    --dark: #ffffff; 
-    --primary-bg: #1a1a1a; 
-    --primary-text: #ffffff; 
-    --link-hover: rgba(255, 255, 255, 0.8);
-    --header-text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+html {
+  scroll-behavior: smooth;
+}
+
+body[data-theme="dark"] {
+  --white: #000000;
+  --white-30: rgba(0, 0, 0, 0.7);
+  --dark-50: rgba(255, 255, 255, 0.8);
+  --dark: #ffffff;
+  --primary-bg: #1a1a1a;
+  --primary-text: #ffffff;
+  --link-hover: rgba(255, 255, 255, 0.8);
+  --header-text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Estilos Gerais do Body */
 body {
-    font-family: "Omori-Font";
-    font-size: 2rem; 
-    background-color: var(--primary-bg);
-    background-image: var(--body-bg-img);
-    background-size: contain; 
-    background-position: center;
-    background-attachment: fixed; 
-    color: var(--primary-text);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: background-color 0.3s ease, color 0.3s ease; 
-    padding-top: 0; 
-}
-
-.omori-font-text {
-    font-family: "Omori-Font";
-    font-size: 2.3rem;
-    color: var(--primary-text);
+  font-family: "Omori-Font";
+  font-size: 2rem;
+  background-color: var(--primary-bg);
+  background-image: var(--body-bg-img);
+  background-size: contain;
+  background-position: center;
+  color: var(--primary-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-top: 0;
 }
 
 .content {
-    text-align: start;
-    font-size: 1.3rem;
+  text-align: start;
+  font-size: 2.5rem;
 }
 
 header {
-    box-shadow: 0 0 50px black;
-    position: relative; 
-    width: 100%;
-    height: 15dvh;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    user-select: none;
-    border-radius: 0 0 30px 30px;
-    overflow: hidden; 
-    margin-bottom: 2rem; 
+  box-shadow: 0 0 50px black;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  border-radius: 0 0 30px 30px;
+  overflow: hidden;
+  margin-bottom: 2rem;
 }
 
-#goBack {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    color: var(--primary-text);
-    backdrop-filter: blur(10px);
-    background-color: var(--white-30);
-    border: 1px solid rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    z-index: 9999;
-    transition: 250ms;
+.footer-items {
+  position: fixed;
+  left: 20px;
+  width: 98%;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  z-index: 9999;
+  transition: 250ms;
+  user-select: none;
 }
 
-#goBack:hover {
-  scale: 1.02;
+.footer-items a {
+  border-radius: 10px;
+  color: var(--primary-text);
+  margin: 0;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(12px);
+  background-color: var(--white-30);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: all 0.1s;
+}
+
+.footer-items a:hover {
+  font-size: 2.3rem;
+}
+
+.footer-items #icon-goBack {
+  display: none;
+}
+
+.footer-mention {
+  border-radius: 10px;
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+  background-color: var(--white-30);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
 }
 
 #background-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: var(--header-bg-img);
-    background-position: center;
-    z-index: 0; 
-    transition: filter 0.3s ease-in-out; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--header-bg-img);
+  background-position: center;
+  z-index: 0;
+  transition: filter 0.3s ease-in-out;
 }
 
 #content {
-    position: relative; 
-    z-index: 1;
-    color: var(--white); 
-    text-shadow: var(--header-text-shadow);
-    padding: 2rem;
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  text-shadow: var(--header-text-shadow);
+  padding: 2rem;
 }
 
 #content h1 {
-    font-family: "Omori-Font"; 
-    font-size: 6rem;
-    line-height: 1;
-    margin: 0;
+  font-family: "Omori-Font";
+  font-size: 6rem;
+  line-height: 1;
+  margin: 0;
 }
 
 nav {
-    position: relative; 
-    display: flex;
-    justify-content: flex-start;
-    min-width: fit-content;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    background-color: transparent;
+  background-color: var(--white-30);
+  backdrop-filter: blur(20px);
+  color: var(--primary-text);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  min-width: fit-content;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 nav ul {
-    list-style-type: none; 
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-text);
-    display: flex;
-    gap: 2rem; 
-    font-size: 1.5rem;
+  list-style-type: numeric;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-text);
+  gap: 2rem;
+  font-size: 2.5rem;
 }
 
 nav ul li {
-    margin-left: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--primary-text);
-    font-size: 1.5rem; 
-    transition: color 0.2s ease;
+  text-decoration: none;
+  color: var(--primary-text);
+  font-size: 2.5rem;
+  transition: color 0.2s ease;
 }
 
 nav ul li a:hover {
-    color: var(--link-hover);
-    text-decoration: underline;
+  color: var(--link-hover);
+  text-decoration: underline;
 }
 
 /* Estilos do Main */
-main {
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-    background-color: var(--white-30);
-    backdrop-filter: blur(20px);
-    padding: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 10px;
-    text-align: center;
-    max-width: 80vw;
-    box-shadow: rgba(204, 209, 255, 0.25);
-    transition: 300ms;
+#main-content>section {
+  background-color: var(--white-30);
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80vw;
+  box-shadow: rgba(204, 209, 255, 0.25);
+  transition: 600ms;
+  margin-bottom: 100px;
+}
+
+#main-content>section #main-title {
+  font-family: "Omori-Font";
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+#main-content>section>figure {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-content>section:hover {
+  backdrop-filter: blur(20px);
+  scale: 1.01;
 }
 
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  width: 100%;
+}
+
+.images-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+}
+
+.images-content figure {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.images-content figure:hover {
+  transform: scale(1.05);
+}
+
+.images-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: var(--white-30);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: 200ms;
+  object-fit: cover;
+}
+
+.images-content figcaption {
+  margin-top: 1rem;
+  font-size: 2rem;
+  word-wrap: break-word;
+}
+
+.images-content img:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 0px 10px var(--dark-50);
+}
+
+.images-content img:active {
+  transform: scale(0.99);
+}
+
+/* --- Estilos do Modal --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* Classe para mostrar o modal via JS */
+.modal-overlay.visible {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  padding: 2rem 3rem;
+  backdrop-filter: blur(12px) opacity(0.5);
+  -webkit-backdrop-filter: blur(12px) opacity(0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--white);
+  color: var(--primary-text);
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: var(--primary-text);
+  cursor: pointer;
+}
+
+.modal-content p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.modal-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  background-color: var(--dark);
+  color: var(--white);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.5rem;
+}
+
+.modal-button:hover {
+  background-color: var(--link-hover);
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.modal-button:active {
+  transform: scale(0.99);
+}
+
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Classe que será adicionada via JS para ativar a animação */
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#modalImage {
+  width: 100%;
+  max-width: 400px;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 1rem 0;
+  transition: transform 0.3s ease;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-text);
+  padding: 1rem;
+  user-select: none;
+}
+
+#prevBtn {
+  left: -10px;
+}
+
+#nextBtn {
+  right: -10px;
+}
+
+.nav-arrow {
+  transition: all 0.5s ease;
+}
+
+.nav-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
 }
 
 @media (max-width: 900px) {
-    .pages {
-        flex-direction: column;
-        gap: 20px;
-    }
+  .pages {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pages-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .pages-content figure {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .pages-content img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media (max-width: 600px) {
-    header {
-        height: 13dvh;
-    }
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        list-style-type: decimal; 
-        font-size: 1.2rem; 
-        gap: 1rem;
-    }
-    nav {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        width: fit-content;
-    }
+  * {
+    overflow-x: hidden;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.2rem;
+    gap: 1rem;
+  }
+
+  nav {
+    padding: 1rem;
+    width: fit-content;
+  }
+
+  header {
+    height: fit-content;
+  }
+
+  .content {
+    font-size: 2.1rem;
+  }
+
+  .pages-content img {
+    height: auto;
+  }
+
+  #content h1 {
+    font-size: 3rem;
+  }
+
+  .footer-items {
+    font-size: 1.7rem;
+    width: 94%;
+  }
+
+  #text-goBack {
+    display: none;
+  }
+
+  .footer-items #icon-goBack {
+    display: block;
+  }
+
+  .footer-mention {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .pages-content img {
+    height: auto;
+    max-height: 19rem;
+  }
 }
