@@ -148,6 +148,7 @@ body[data-theme='dark'] #bulb-img {
 
 /* --- MEWO --- */
 .mewo-container img {
+  cursor: pointer;
   position: absolute;
   bottom: 10px;
   left: 5%;  height: 11vmin;

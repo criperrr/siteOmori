@@ -126,6 +126,9 @@ main {
     transform: translate(-50%, -50%) rotate(var(--rotation)) translateY(calc(-1 * var(--radius))); /* circulo */
 }
 
+
+da pra tirar botando id na transform eu acho
+
 .gallery-item:hover {
     transform: translate(-50%, -50%) rotate(var(--rotation)) translateY(calc(-1 * var(--radius))) scale(1.05);
     z-index: 10;

@@ -157,6 +157,8 @@ nav ul li a:hover {
     text-align: start; /* Alterado de 'center' para 'start' para o texto do parágrafo */
     max-width: 80vw;
     z-index: 1; 
+    padding-left: 2rem;
+    padding-right: 2rem;
     box-shadow: rgba(204, 209, 255, 0.25);
     transition: 600ms;
     margin-bottom: 100px;
