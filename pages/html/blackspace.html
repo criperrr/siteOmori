@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="/pages/styles/blackspace.css">
     <script defer src="/pages/scripts/blackspace.js"></script>
 </head>
-<body data-theme="dark"> 
-
+<body> 
     <main>
         <section class="intro fade-in-element">
             <h2 class="omori-font-text">WELCOME</h2>
@@ -52,8 +51,7 @@
 
     <footer>
         <div class="footer-items">
-            <a id="icon-goBack" href="/pages/html/homePage.html" draggable="false">Voltar</a>
-            <a id="text-goBack" href="/pages/html/homePage.html" draggable="false">Voltar à página principal</a>
+            <a id="text-goBack" style="cursor: pointer;" draggable="false">Voltar à página principal</a>
             <div class="footer-mention">
                 <a href="https://github.com/henriqclaro" draggable="false">@hrkms</a>
                 <span>&</span>
@@ -74,5 +72,14 @@
             <button id="modalLink" class="modal-button omori-font-text" draggable="false">OK</button>
         </div>
     </dialog>
+
+    <dialog id="backModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 20%;">
+            <button id="closeBackModal" class="modal-close" aria-label="Fechar modal">&times;</button>
+            <p>Tem certeza que quer voltar a fingir que nada aconteceu?</p>
+            <button id="confirmBackButton" class="modal-button omori-font-text" draggable="false">Sim.</button>
+        </div>
+    </dialog>
+
 </body>
 </html>

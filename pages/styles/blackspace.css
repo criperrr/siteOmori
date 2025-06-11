@@ -15,7 +15,12 @@ html {
 
 @font-face {
   font-family: "Omori-Font";
-  src: url("../../media/fonts/OMORI_GAME3.ttf"); /* Corrigido para caminho relativo */
+  src: url("../../media/fonts/OMORI_GAME3.ttf"); 
+}
+
+.omori-font-text{
+  font-family: "Omori-Font";
+  font-size: 4rem;
 }
 
 :root {
@@ -118,7 +123,7 @@ main {
     --rotation: calc((360deg / 6) * (var(--n) - 1));
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(var(--rotation)) translateY(calc(-1 * var(--radius)));
+    transform: translate(-50%, -50%) rotate(var(--rotation)) translateY(calc(-1 * var(--radius))); /* circulo */
 }
 
 .gallery-item:hover {
@@ -238,13 +243,13 @@ footer {
 .modal-overlay { 
   position: fixed; 
   inset: 0;
-  width: 100vw; /* Usa a largura total da viewport */
-  height: 100vh; /* Usa a altura total da viewport */
-  max-width: 100vw; /* Sobrescreve o max-width padrão do dialog */
-  max-height: 100vh; /* Sobrescreve o max-height padrão do dialog */
-  margin: 0; /* Remove a margem padrão do dialog */
-  padding: 0; /* Remove o padding padrão do dialog */
-  border: none; /* Remove a borda padrão do dialog */
+  width: 100vw; 
+  height: 100vh; 
+  max-width: 100vw; 
+  max-height: 100vh; 
+  margin: 0; 
+  padding: 0; 
+  border: none; 
   
   display: flex; 
   justify-content: center; 
@@ -270,8 +275,8 @@ footer {
   border-radius: 15px; 
   width: 90%; 
   max-width: 600px;
-  max-height: 100vh; /* Garante que o conteúdo não ultrapasse a altura da tela */
-  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito grande */
+  max-height: 100vh;
+  overflow-y: auto; 
   text-align: center; 
   position: relative;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.8); 
@@ -435,13 +440,13 @@ footer {
 }
 @media (max-width: 600px) {
     footer {
-        padding: 15px; /* Reduz o padding vertical e horizontal */
+        padding: 15px; 
     }
     .footer-items {
-        flex-direction: row; /* Empilha os itens verticalmente */
-        justify-content: space-between; /* Centraliza o conteúdo empilhado */
+        flex-direction: row; 
+        justify-content: space-between; 
         font-size: 2rem;
-        gap: 1rem; /* Aumenta o espaço entre os itens empilhados */
+        gap: 1rem;
     }
 
     .footer-mention{
@@ -450,9 +455,9 @@ footer {
       flex-direction: row;
     }
     #text-goBack {
-        display: none; /* Esconde o botão de texto longo */
+        display: none;
     }
     #icon-goBack {
-        display: block; /* Mostra o botão de texto curto ("Voltar") */
+        display: block;
     }
 }

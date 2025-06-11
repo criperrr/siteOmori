@@ -97,7 +97,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    const goBack = document.getElementById('text-goBack');
+const backModal = document.getElementById('backModal');
+const closeBackModalBtn = document.getElementById('closeBackModal');
+const confirmBackBtn = document.getElementById('confirmBackButton');
 
+// Função para ABRIR o modal de confirmação
+goBack.addEventListener('click', (e) => {
+    e.preventDefault(); // Impede que o link 'a' tente navegar para algum lugar
+    backModal.showModal();
+    backModal.classList.add('visible');
+});
+
+// Função para FECHAR o modal de confirmação
+function hideBackModal() {
+    backModal.classList.remove('visible');
+    // Adiciona um pequeno delay para a animação de opacidade terminar antes de fechar
+    setTimeout(() => {
+        backModal.close();
+    }, 300);
+}
+
+    // Evento para o botão de fechar (o 'X')
+    closeBackModalBtn.addEventListener('click', hideBackModal);
+
+    // Evento para fechar clicando no fundo (backdrop)
+    backModal.addEventListener('click', (event) => {
+        if (event.target === backModal) {
+            hideBackModal();
+        }
+    });
+
+    // Evento para o botão de AÇÃO: "Sim."
+    confirmBackBtn.addEventListener('click', () => {
+        // Redireciona o usuário para a página principal
+        window.location.href = "../../pages/html/homePage.html";
+    });
 
     // --- Efeito Fade-in ---
     const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
