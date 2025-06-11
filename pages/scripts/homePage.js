@@ -1,14 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Tema escuro/claro
-
   const header = document.getElementById('header');
   const backgroundLayer = document.getElementById('background-layer');
   const body = document.body;
 
-  // Carrega o tema salvo ou usa 'light' como padrão
-
-  // Função para aplicar o tema visualmente
   function applyTheme(theme) {
     const isDark = theme === 'dark';
     body.setAttribute('data-theme', theme);
@@ -19,12 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const theme = sessionStorage.getItem('theme') || 'light';
 
-
-  applyTheme(theme); // Aplica o tema assim que a página carrega
-
-
-
-  // Modais
+  applyTheme(theme);
 
   const galleryImages = document.querySelectorAll('.gallery-image');
   const modal = document.getElementById('imageModal');
@@ -32,36 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalDescription = document.getElementById('modalDescription');
   const modalLink = document.getElementById('modalLink');
 
-  // Verifica se os elementos do modal existem na página antes de adicionar os eventos
   if (modal && galleryImages.length > 0) {
-    // Função para mostrar o modal com as informações corretas
     const showModal = (description, link) => {
-      modalDescription.textContent = description; // Define a descrição
-      modalLink.href = link; // Define o link do botão
-      modal.classList.add('visible'); // Torna o modal visível
+      modalDescription.textContent = description;
+      modalLink.href = link;
+      modal.classList.add('visible');
     };
 
-    // Função para esconder o modal
     const hideModal = () => {
       modal.classList.remove('visible');
     };
 
-    // Adiciona um evento de clique para cada imagem da galeria
     galleryImages.forEach(image => {
       image.addEventListener('click', () => {
-        // Pega as informações dos atributos 'data-*' da imagem clicada
         const description = image.dataset.description;
         const link = image.dataset.link;
         showModal(description, link);
       });
     });
 
-    // Adiciona evento de clique para o botão de fechar
     closeModalBtn.addEventListener('click', hideModal);
 
-    // Adiciona evento de clique para o fundo do modal (overlay)
     modal.addEventListener('click', (event) => {
-      // Se o alvo do clique for o próprio fundo (e não a caixa de conteúdo), o modal fecha
       if (event.target === modal) {
         hideModal();
       }
@@ -75,22 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (elementsToFadeIn.length > 0) {
     const observerOptions = {
-      root: null, // A área de observação é o viewport do navegador
+      root: null, 
       rootMargin: '0px',
-      threshold: 0.1 // O gatilho é ativado quando 10% do elemento está visível
+      threshold: 0.1 
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        // Quando o elemento entra na tela
+        
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible'); // Adiciona a classe que ativa a animação
-          observer.unobserve(entry.target); // Para de observar o elemento para economizar recursos
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    // Inicia a observação para cada elemento
     elementsToFadeIn.forEach(element => {
       observer.observe(element);
     });

@@ -1,4 +1,3 @@
-'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
   // --- TEMA ESCURO/CLARO ---
@@ -27,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     
-    // Mapeia os dados de todas as imagens da galeria de uma só vez
     const galleryImages = Array.from(gallery.querySelectorAll('.gallery-image'));
     const galleryData = galleryImages.map(img => ({
       src: img.src,
@@ -46,22 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const showModal = (index) => {
       currentIndex = index;
       updateModal();
-      modal.showModal(); // API nativa para mostrar o dialog
+      modal.showModal();
     };
 
     const hideModal = () => {
-      modal.close(); // API nativa para fechar o dialog
+      modal.close();
     };
 
-    // Navegação com os botões
     prevBtn.addEventListener('click', () => {
-      // Lógica corrigida para loop contínuo
       currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
       updateModal();
     });
 
     nextBtn.addEventListener('click', () => {
-      // Lógica corrigida para loop contínuo
       currentIndex = (currentIndex + 1) % galleryData.length;
       updateModal();
     });
@@ -70,22 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModalBtn.addEventListener('click', hideModal);
     okButton.addEventListener('click', hideModal);
     modal.addEventListener('click', (event) => {
-      // Fecha se o clique for no backdrop (fora do conteúdo)
       if (event.target === modal) {
         hideModal();
       }
     });
     
-    // Acessibilidade: Navegação com teclado
-    document.addEventListener('keydown', (e) => {
-        if (modal.open) { // Verifica se o modal está aberto
-            if (e.key === 'ArrowLeft') prevBtn.click();
-            if (e.key === 'ArrowRight') nextBtn.click();
-            if (e.key === 'Escape') hideModal();
-        }
-    });
 
-    // Delegação de eventos para a galeria
     gallery.addEventListener('click', (event) => {
       const clickedImage = event.target.closest('.gallery-image');
       if (clickedImage) {

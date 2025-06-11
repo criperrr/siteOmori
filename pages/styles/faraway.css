@@ -114,52 +114,39 @@ header {
 }
 
 .gallery-container {
-  position: relative; /* Essencial para o posicionamento do ::before */
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
   width: 100%;
-  
-  /* O fundo semi-transparente é necessário para o backdrop-filter funcionar */
   background-color: var(--surface-bg); 
-  
-  padding: 2.5rem; /* Aumentei um pouco o padding para o efeito ficar mais bonito */
+  padding: 2.5rem;
   border-radius: 12px;
   border: 1px solid var(--surface-border);
   transition: transform 600ms ease-out;
-  overflow: hidden; /* Garante que o ::before não vaze para fora do border-radius */
+  overflow: hidden;
 }
 
-/* O pseudo-elemento que cria a camada de blur */
 .gallery-container::before {
     content: '';
     position: absolute;
-    inset: 0; /* Cobre todo o container */
-    
-    /* O efeito de blur que será aplicado ao fundo */
+    inset: 0;
     backdrop-filter: blur(20px); 
-    
-    /* Começa invisível e tem uma transição suave */
     opacity: 0;
     transition: opacity 600ms ease-out;
-
-    /* Garante que o blur fique atrás do conteúdo (as imagens) */
     z-index: 1; 
 }
 
-/* A REGRA QUE FALTAVA: Ativa o blur no hover */
 .gallery-container:hover::before {
   opacity: 1;
 }
 
-/* Garante que as imagens fiquem na frente da camada de blur */
 .gallery-container > figure {
     position: relative; 
     z-index: 2; 
 }
 
-/* Pequeno efeito de escala no hover do container principal */
 .gallery-container:hover {
   transform: scale(1.01);
 }
@@ -179,7 +166,6 @@ header {
 .gallery-container figure:hover {
   transform: scale(1.05);
 }
-
 
 .gallery-container img {
   width: 100%;
@@ -242,15 +228,10 @@ footer {
   display: flex;
   gap: 0.5em;
   align-items: center;
-  background-color: transparent; /* Mention wrapper doesn't need its own background */
+  background-color: transparent;
   border: none;
   padding: 0;
 }
-
-#icon-goBack {
-  display: none;
-}
-
 
 /* --- MODAL --- */
 #imageModal {
@@ -265,30 +246,26 @@ footer {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     position: relative;
     
-    /* NOVAS PROPRIEDADES */
     flex-direction: column;
-    max-height: 90vh; /* O modal nunca será mais alto que 90% da tela */
-    overflow-y: auto; /* Adiciona uma barra de rolagem SE o conteúdo for muito grande */
+    max-height: 90vh;
+    overflow-y: auto;
 }
 #imageModal[open] {
     display: flex;
     flex-direction: column;
 }
-/* O ::backdrop é o overlay que cobre a tela inteira (NÃO MUDA) */
+
 #imageModal::backdrop {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
 }
 
-/* O conteúdo interno não precisa de muitos estilos agora */
 .modal-content {
   position: relative;
   width: 100%;
-
-  /* NOVAS PROPRIEDADES */
   display: flex;
-  flex-direction: column; /* Organiza os itens em uma coluna vertical */
-  align-items: center;   /* Centraliza todos os itens horizontalmente */
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal-body {
@@ -296,38 +273,33 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem; /* Espaço entre a imagem e a descrição */
+  margin-bottom: 1rem;
 }
 
 #modalImage {
   width: 100%;
-  max-height: 65vh; /* Aumentei a altura máxima um pouco */
+  max-height: 65vh; 
   object-fit: contain;
   border-radius: 12px;
 }
 
-/* --- BOTÕES DE NAVEGAÇÃO DO MODAL (MELHORADOS) --- */
+/* --- BOTÕES DE NAVEGAÇÃO DO MODAL --- */
 .nav-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  
-  /* Estilo e Tamanho */
-  font-size: 2.5rem; /* Tamanho do ícone de seta */
+  font-size: 2.5rem;
   font-weight: bold;
   color: var(--primary-bg);
   background-color: rgba(0, 0, 0, 0.4);
   border: none;
-  border-radius: 50%; /* Deixa o botão redondo */
-  width: 50px;   /* Largura fixa */
-  height: 50px;  /* Altura fixa */
-  
-  /* Centralização do ícone */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 1; /* Garante alinhamento vertical */
-
+  line-height: 1;
   cursor: pointer;
   user-select: none;
   z-index: 10;
@@ -337,7 +309,7 @@ footer {
     transform: translateY(-50%) scale(1.1);
     background-color: rgba(0, 0, 0, 0.6);
 }
-/* Posicionamento dos botões (dentro do modal) */
+
 #prevBtn { left: -75px; }
 #nextBtn { right: -75px; }
 
@@ -346,7 +318,7 @@ footer {
   font-size: 1.6rem;
   line-height: 1.6;
   margin: 1.5rem 0;
-  text-align: center; /* Centralizado para melhor leitura */
+  text-align: center;
   color: var(--primary-text);
   width: 100%;
 }
@@ -360,10 +332,10 @@ footer {
   transition: opacity 0.3s ease, transform 0.2s ease;
   font-size: 1.5rem;
   border: 1px solid transparent;
-  display: block; /* Para permitir margem automática */
-  margin: 0 auto;  /* Centraliza o botão OK */
-  margin-top: auto; /* Empurra o botão para o final, se houver espaço */
-  padding-top: 1rem;  /* Adiciona um espaço de respiro acima do botão */
+  display: block;
+  margin: 0 auto;
+  margin-top: auto;
+  padding-top: 1rem;
   flex-shrink: 0;
 }
 .modal-button:hover {
@@ -382,6 +354,10 @@ footer {
   z-index: 10;
 }
 
+#text-goBack{
+  font-size: 2.5rem;
+}
+
 /* --- FADE-IN ANIMATION --- */
 .fade-in-element {
   opacity: 0;
@@ -392,37 +368,17 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-#text-goBack{
-  font-size: 2.5rem;
-}
+
 /* --- MEDIA QUERIES --- */
 @media (max-width: 768px) {
   #content h1 {
     font-size: 4rem;
   }
   
-  /* Ajusta o posicionamento dos botões em telas menores */
   #prevBtn { left: 10px; }
   #nextBtn { right: 10px; }
 }
 
-/* --- FADE-IN ANIMATION --- */
-.fade-in-element {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.fade-in-element.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- MEDIA QUERIES --- */
-@media (max-width: 768px) {
-  #content h1 {
-    font-size: 4rem;
-  }
-}
 
 @media (max-width: 600px) {
   #content h1 {

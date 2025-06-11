@@ -40,8 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const applyTheme = (theme) => {
     body.setAttribute('data-theme', theme);
-    // Apenas a lógica do drop-shadow da lâmpada permanece aqui, pois é mais complexa.
-    // O resto é tratado pelo CSS.
     bulbImg.style.filter = theme === 'dark'
       ? 'drop-shadow(0px 0px 100px var(--dark))'
       : 'invert(1)';
@@ -67,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   mewoImg.addEventListener('click', playMewoSound);
 
-  // --- Lógica do Modal de Confirmação da Porta ---
   doorLink.addEventListener('click', (event) => {
     event.preventDefault(); 
     if (doorModal && typeof doorModal.showModal === 'function') {
@@ -101,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   sketchbookBtn.addEventListener('click', () => {
-    showGalleryModal(0); // Abre na primeira imagem
+    showGalleryModal(0);
   });
 
   closeGalleryBtn.addEventListener('click', hideGalleryModal);

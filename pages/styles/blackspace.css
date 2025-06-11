@@ -199,15 +199,6 @@ main {
     left: -10px;
 }
 
-/* ESTILO PARA O BOTÃO "SOBRE" */
-.about-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 4rem 0; /* Espaçamento vertical */
-    margin-top: 2rem; /* Margem para separar da galeria */
-}
 
 
 /* --- FOOTER E MODAL --- */
@@ -403,10 +394,47 @@ footer {
     .gallery-item { --radius: 180px; width: 90px; height: 90px; }
     .center-item { width: 120px; height: 120px; }
     main { padding-bottom: 8rem; }
-    .about-section { margin-top: 4rem; } /* Ajuste de margem para telas menores */
+}
+
+@media (max-width: 600px) {
+    footer {
+        padding: 15px;
+    }
+    .footer-items {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        gap: 1rem;
+    }
+    #about-a{
+      font-size: 1rem;
+    }
+    .footer-mention{
+      display: flex;
+      font-size: 1rem;
+      flex-direction: row;
+    }
+
+   
+    #text-goBack {
+        display: block; 
+    }
+
+    #icon-goBack {
+        display: none; 
+    }
 }
 
 @media (max-width: 480px) {
+  .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: end !important  ;
+    align-items: end !important;
+  }
+  #about-a{
+    font-size: 1.5rem !important;
+  }
     .circular-gallery {
       display: flex;
       flex-direction: column;
@@ -414,7 +442,7 @@ footer {
       width: 100%;
       position: static;
       gap: 4rem;
-      margin-top: 3rem; /* Reduzido de 30rem */
+      margin-top: 30rem;
       margin-bottom: 5rem;
       margin-left: 0;
       margin-right: 0;
@@ -427,7 +455,7 @@ footer {
       margin: 0 auto;
     }
     #last-figcaption {
-      padding-bottom: 0; /* Removido o padding extra */
+      padding-bottom: 0;
     }
     .gallery-item img, .center-item img {
       transform: none !important;
@@ -444,39 +472,15 @@ footer {
 
     .gallery-item[style*="--n"] { order: 0; }
 
-    #text-goBack { display: none; }
-    #icon-goBack { display: block; }
+    #text-goBack {
+        display: block;
+    }
+    #icon-goBack {
+        display: none;
+    }
 
     #creatureName { font-size: 1.8rem; }
     #modalDescription { font-size: 1.5rem; }
     .modal-button { font-size: 1.2rem; }
     .nav-arrow { font-size: 2.5rem; }
-    
-    .about-section {
-        padding-bottom: 10rem; /* Garante espaço antes do footer */
-        margin-top: 0;
-    }
-}
-@media (max-width: 600px) {
-    footer {
-        padding: 15px;
-    }
-    .footer-items {
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: 2rem;
-        gap: 1rem;
-    }
-
-    .footer-mention{
-      display: flex;
-      font-size: 1rem;
-      flex-direction: row;
-    }
-    #text-goBack {
-        display: none;
-    }
-    #icon-goBack {
-        display: block;
-    }
 }

@@ -1,117 +1,99 @@
+
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Tema escuro/claro
-
-  const header = document.getElementById('header');
-  const backgroundLayer = document.getElementById('background-layer');
+  // --- TEMA ESCURO/CLARO ---
   const body = document.body;
+  const backgroundLayer = document.getElementById('background-layer');
+  const savedTheme = sessionStorage.getItem('theme') || 'light';
 
-  // Carrega o tema salvo ou usa 'light' como padrão
-  const theme = sessionStorage.getItem('theme') || 'light';
-  const isDark = theme === 'dark';
-
-  // Função para aplicar o tema visualmente
-  function applyTheme() {
+  function applyTheme(theme) {
     body.setAttribute('data-theme', theme);
     if (backgroundLayer) {
-      // Aplica um filtro de brilho na imagem de fundo se o tema for escuro
+      const isDark = theme === 'dark';
       backgroundLayer.style.filter = isDark ? 'invert() brightness(75%)' : '';
     }
   }
+  applyTheme(savedTheme);
 
-  applyTheme(); // Aplica o tema assim que a página carrega
-
-
-  // Script para galeria de fotos.
-
-    const galleryImages = document.querySelectorAll('.gallery-image');
-    const modal = document.getElementById('imageModal');
+  // --- GALERIA E MODAL ---
+  const gallery = document.getElementById('gallery');
+  const modal = document.getElementById('imageModal');
+  
+  if (gallery && modal) {
     const modalImage = document.getElementById('modalImage');
     const modalDescription = document.getElementById('modalDescription');
-    const modalLink = document.getElementById('modalLink');
+    const okButton = document.getElementById('modalOkButton');
     const closeModalBtn = document.getElementById('closeModal');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-
+    
+    const galleryImages = Array.from(gallery.querySelectorAll('.gallery-image'));
+    const galleryData = galleryImages.map(img => ({
+      src: img.src,
+      description: img.dataset.description,
+    }));
+    
     let currentIndex = 0;
-    let galleryData = []; // Fotos
 
-    if (modal && galleryImages.length > 0) { // Carrega as informações da foto quando tudo estiver carregado corretamente.
-        galleryData = Array.from(galleryImages).map(img => ({
-            src: img.src,
-            description: img.dataset.description,
-        }));
-
-        const updateModal = () => { // Função genérica pra atualizar a imagem
-            const current = galleryData[currentIndex];
-            modalImage.src = current.src;
-            modalDescription.textContent = current.description;
-            modalLink.onclick = () => hideModal();
-        };
-
-        const showModal = (index) => { // Função pra iniciar o modal, dps chama o update generalizado.
-            currentIndex = index;
-            updateModal(index);
-            modal.classList.add('visible');
-        };
-
-        const hideModal = () => {
-            modal.classList.remove('visible'); // Fecha o modal
-        };
-
-        galleryImages.forEach((image, index) => { // Pra cada elemento da classe, ele envia o index pro show modal
-            image.addEventListener('click', () => {
-                showModal(index);
-            });
-        });
-
-        closeModalBtn.addEventListener('click', hideModal); // Fecha o modal
-        modalLink.addEventListener('click', hideModal); // Fecha o modal
-
-        modal.addEventListener('click', (event) => { // Fecha o modal
-            if (event.target === modal) hideModal();
-        });
-
-        prevBtn.addEventListener('click', () => { // Anterior
-            currentIndex = currentIndex === 0? currentIndex: (currentIndex - 1 + galleryData.length) % galleryData.length;
-            updateModal();
-        });
-
-        nextBtn.addEventListener('click', () => { // Próximo
-            console.log(`Antes: Current index: ${currentIndex}\n  galleryData.length: ${galleryData.length}`);
-            currentIndex = currentIndex === galleryData.length-1? currentIndex: (currentIndex + 1) % galleryData.length;
-            console.log(`Antes: Current index: ${currentIndex}\n  galleryData.length: ${galleryData.length}`);
-            updateModal();
-        });
-    }
-
-
-  // Efeito Fade-in
-
-  const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
-
-  if (elementsToFadeIn.length > 0) {
-    const observerOptions = {
-      root: null, // A área de observação é o viewport do navegador
-      rootMargin: '0px',
-      threshold: 0.1 // O gatilho é ativado quando 10% do elemento está visível
+    const updateModal = () => {
+      if (galleryData.length === 0) return;
+      const current = galleryData[currentIndex];
+      modalImage.src = current.src;
+      modalDescription.textContent = current.description;
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        // Quando o elemento entra na tela
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible'); // Adiciona a classe que ativa a animação
-          observer.unobserve(entry.target); // Para de observar o elemento para economizar recursos
-        }
-      });
-    }, observerOptions);
+    const showModal = (index) => {
+      currentIndex = index;
+      updateModal();
+      modal.showModal();
+    };
 
-    // Inicia a observação para cada elemento
-    elementsToFadeIn.forEach(element => {
-      observer.observe(element);
+    const hideModal = () => {
+      modal.close();
+    };
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+      updateModal();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % galleryData.length;
+      updateModal();
+    });
+    
+    // Fechar o modal
+    closeModalBtn.addEventListener('click', hideModal);
+    okButton.addEventListener('click', hideModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        hideModal();
+      }
+    });
+    
+
+    gallery.addEventListener('click', (event) => {
+      const clickedImage = event.target.closest('.gallery-image');
+      if (clickedImage) {
+        const index = galleryImages.indexOf(clickedImage);
+        if (index > -1) {
+          showModal(index);
+        }
+      }
     });
   }
+
+  // --- EFEITO FADE-IN ---
+  const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
+  if (elementsToFadeIn.length > 0) {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elementsToFadeIn.forEach(element => observer.observe(element));
+  }
 });
-
-

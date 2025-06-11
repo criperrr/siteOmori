@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Lógica do tema é simplificada, pois a página de Blackspace é sempre escura.
-    // O atributo data-theme="dark" já foi colocado diretamente no <body> do HTML.
     const backgroundLayer = document.getElementById('background-layer');
     if (backgroundLayer) {
         backgroundLayer.style.filter = 'invert() brightness(75%)';
@@ -11,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
-    const creatureNameElement = document.getElementById('creatureName'); // Adicionado
+    const creatureNameElement = document.getElementById('creatureName');
     const modalDescription = document.getElementById('modalDescription');
     const okButton = document.getElementById('modalLink');
     const closeModalBtn = document.getElementById('closeModal');
@@ -21,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal && galleryItems.length > 0) {
         let currentIndex = 0;
         
-        // Mapeia os dados das imagens e legendas uma única vez para otimização
         const galleryData = Array.from(galleryItems).map(item => {
             const img = item.querySelector('img');
             const caption = item.querySelector('figcaption');
@@ -29,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 src: img.src,
                 alt: img.alt,
                 description: img.dataset.description,
-                name: caption.textContent.trim() // Salva o nome da criatura
+                name: caption.textContent.trim()
             };
         });
 
@@ -37,54 +34,49 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentItem = galleryData[currentIndex];
             modalImage.src = currentItem.src;
             modalImage.alt = currentItem.alt;
-            creatureNameElement.textContent = currentItem.name; // Atualizado: Define o nome da criatura
+            creatureNameElement.textContent = currentItem.name; 
             modalDescription.textContent = currentItem.description || '';
         };
 
         const showModal = (index) => {
             currentIndex = index;
             updateModal();
-            modal.showModal(); // Usa o método showModal() para <dialog>
+            modal.showModal(); 
             modal.classList.add('visible');
         };
 
         const hideModal = () => {
             modal.classList.remove('visible');
-            // Adiciona um pequeno delay para a animação de opacidade terminar antes de fechar
             setTimeout(() => {
-                modal.close(); // Usa o método close() para <dialog>
+                modal.close(); 
             }, 300);
         };
 
-        // Adiciona evento de clique para cada item da galeria
         galleryItems.forEach((item, index) => {
             item.addEventListener('click', () => showModal(index));
         });
 
-        // Eventos para fechar o modal
         closeModalBtn.addEventListener('click', hideModal);
         okButton.addEventListener('click', hideModal);
         modal.addEventListener('click', (event) => {
-            // Fecha o modal se o clique for no backdrop (fora do conteúdo)
             if (event.target === modal) {
                 hideModal();
             }
         });
 
-        // --- LÓGICA DE NAVEGAÇÃO OTIMIZADA ---
+        // --- LÓGICA DE NAVEGAÇÃO  ---
         prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Impede que o clique no botão feche o modal
+            e.stopPropagation(); 
             currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
             updateModal();
         });
 
         nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Impede que o clique no botão feche o modal
+            e.stopPropagation(); 
             currentIndex = (currentIndex + 1) % galleryData.length;
             updateModal();
         });
 
-        // Navegação com as setas do teclado
         document.addEventListener('keydown', (e) => {
             if (modal.classList.contains('visible')) {
                 if (e.key === 'ArrowLeft') {
@@ -104,33 +96,27 @@ const confirmBackBtn = document.getElementById('confirmBackButton');
 
 // Função para ABRIR o modal de confirmação
 goBack.addEventListener('click', (e) => {
-    e.preventDefault(); // Impede que o link 'a' tente navegar para algum lugar
+    e.preventDefault(); 
     backModal.showModal();
     backModal.classList.add('visible');
 });
 
-// Função para FECHAR o modal de confirmação
 function hideBackModal() {
     backModal.classList.remove('visible');
-    // Adiciona um pequeno delay para a animação de opacidade terminar antes de fechar
     setTimeout(() => {
         backModal.close();
     }, 300);
 }
 
-    // Evento para o botão de fechar (o 'X')
     closeBackModalBtn.addEventListener('click', hideBackModal);
 
-    // Evento para fechar clicando no fundo (backdrop)
     backModal.addEventListener('click', (event) => {
         if (event.target === backModal) {
             hideBackModal();
         }
     });
 
-    // Evento para o botão de AÇÃO: "Sim."
     confirmBackBtn.addEventListener('click', () => {
-        // Redireciona o usuário para a página principal
         window.location.href = "../../pages/html/homePage.html";
     });
 
