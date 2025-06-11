@@ -428,19 +428,8 @@ footer {
   #content h1 {
     font-size: 3rem;
   }
-  footer {
-    padding: 15px;
-  }
-  .footer-items {
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-  }
-  #text-goBack {
-    display: none;
-  }
-  #icon-goBack {
-    display: block;
+  .footer-mention a{
+    font-size: 1.2rem;
   }
   .nav-arrow {
     background-color: rgba(0,0,0,0.3);
