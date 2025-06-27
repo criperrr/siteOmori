@@ -7,15 +7,15 @@ As a school work, and for hobbie, me and my friend decided to make a site about 
 
 ## TODO LIST
 * ~Whitespace~
-* Main page
+* ~Main page~
     * ~Basic structure~
     * ~First subpage~
     * ~Second~
-    * Third
+    * ~Third~
 <!-- * Blackspace
     * Basic structure of the page
     * One or two doors and its memories -->
-* Extra (maybe)
+* ~Extra (maybe)~
 
 
 ## Project tree
